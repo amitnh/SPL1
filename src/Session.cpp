@@ -18,6 +18,10 @@ public:
     Session& operator=(const Session &other)   //Copy Assignment           RULE OF 5
     Session& operator=(Session &&other);   //Copy Assignment
     void start();
+    void addUser(User*)
+    {
+        // add to userMap
+    }
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;
