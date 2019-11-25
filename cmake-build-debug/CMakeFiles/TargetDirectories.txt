@@ -1,2 +1,0 @@
-/home/kapelnik/Desktop/cpp_projects/spl1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/kapelnik/Desktop/cpp_projects/spl1/cmake-build-debug/CMakeFiles/edit_cache.dir
