@@ -5,84 +5,67 @@
 #include <iostream>
 #include "../include/Session.h"
 
-enum ActionStatus{PENDING, COMPLETED, ERROR}
+//enum ActionStatus{PENDING, COMPLETED, ERROR}
 
-class BaseAction{
-public:
-    BaseAction():status{PENDING}{}
+//class BaseAction::{
+    BaseAction::BaseAction():status{PENDING}{}
     ActionStatus getStatus(){ }
-    virtual void act(Session& sess){}
-    virtual std::string toString(){}
-protected:
+    void BaseAction::act(Session& sess){}
+    std::string toString(){}
     void complete(){}
     void error(const std::string& errorMsg){}
     std::string getErrorMsg(){}
-private:
     std::string errorMsg;
     ActionStatus status;
-};
 
-class CreateUser  : public BaseAction {
-public:
-    virtual void act(Session& sess)
+
+//class CreateUser  : public BaseAction {
+    void CreateUser::act(Session& sess)
     {
         std::string user_name,recommendation_algorithm;
-        sess.addUser()
+        //sess.addUser();
     }
-    virtual std::string toString()
+    std::string CreateUser::toString() const
     {
-        cout<< "CreateUser " + CreateUser.status.toString();
+       // cout<< "CreateUser " + CreateUser.toString();
     }
-}
 
-class ChangeActiveUser : public BaseAction {
-public:
-    virtual void act(Session& sess);
-    virtual std::string toString() const;
-}
+//class ChangeActiveUser : public BaseAction {
+    void ChangeActiveUser::act(Session& sess){}
+    std::string ChangeActiveUser::toString() const {}
 
-class DeleteUser : public BaseAction {
-public:
-    virtual void act(Session & sess);
-    virtual std::string toString() const;
-}
+//class DeleteUser : public BaseAction {
+    void DeleteUser::act(Session & sess){}
+    std::string DeleteUser::toString() const {}
 
 
-class DuplicateUser : public BaseAction {
-public:
-    virtual void act(Session & sess);
-    virtual std::string toString() const;
-}
-
-class PrintContentList : public BaseAction {
-public:
-    virtual void act (Session& sess);
-    virtual std::string toString() const;
-}
-
-class PrintWatchHistory : public BaseAction {
-public:
-    virtual void act (Session& sess);
-    virtual std::string toString() const;
-}
+//class DuplicateUser : public BaseAction {
+    void DuplicateUser::act(Session & sess){} //make DuplicateUser var here in "act", to pull Name1 name2 from the start method
+    std::string DuplicateUser::toString() const{}
 
 
-class Watch : public BaseAction {
-public:
-    virtual void act(Session& sess);
-    virtual std::string toString() const;
-}
+//class PrintContentList : public BaseAction {
+    void PrintContentList::act (Session& sess){}
+    std::string PrintContentList::toString() const{}
+
+//class PrintWatchHistory : public BaseAction {
+    void PrintWatchHistory::act (Session& sess){}
+    std::string PrintWatchHistory::toString() const{}
 
 
-class PrintActionsLog : public BaseAction {
-public:
-    virtual void act(Session& sess);
-    virtual std::string toString() const;
-}
 
-class Exit : public BaseAction {
-public:
-    virtual void act(Session& sess);
-    virtual std::string toString() const;
-}
+//class Watch : public BaseAction {
+    void Watch::act(Session& sess){}
+    std::string Watch::toString() const{;}
+
+
+//class PrintActionsLog : public BaseAction {
+    void PrintActionsLog::act(Session& sess){}
+    std::string PrintActionsLog::toString() const{}
+
+
+//class Exit : public BaseAction {
+    void Exit::act(Session& sess){}
+    std::string Exit::toString() const{}
+
 

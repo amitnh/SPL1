@@ -74,7 +74,7 @@ User* activeUser;
     }
     User& getActiveUser()
     {
-        return activeUser;
+        return *activeUser;
     }
 
 }
