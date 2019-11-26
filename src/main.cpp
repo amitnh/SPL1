@@ -1,16 +1,22 @@
 #include <iostream>
 #include "../include/Session.h"
-#include <nlohmann/json.hpp>
+#include "../include/Action.h"
+#include "../include/json.hpp"
+#include "../include/User.h"
+#include "../include/Watchable.h"
+
+
+
 using namespace std;
 
 int main(int argc, char** argv){
+    cout <<"hello amit"<<endl;
 	if(argc!=2)
 	{
 		cout << "usage splflix input_file" << endl;
 		return 0;
 	}
-	cout <<"hello amit"<<endl;
-	Session s(argv[1]);
-	s.start();
+	//Session s(argv[1]);
+	//s.start();
 	return 0;
 }
