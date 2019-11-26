@@ -33,7 +33,8 @@ public:
     }
     virtual Watchable* getNextWatchable(Session&)
     {
-
+        Session* s = this;
+        return s*.getActiveUser().getRecommendation();
     }
 private:
     std::string name;

@@ -3,25 +3,24 @@
 //
 #include <string>
 #include <iostream>
+#include "../include/Session.h"
 
-enum ActionStatus{
-    PENDING, COMPLETED, ERROR
-}
+enum ActionStatus{PENDING, COMPLETED, ERROR}
 
 class BaseAction{
 public:
     BaseAction():status{PENDING}{}
-    ActionStatus getStatus() const;
-    virtual void act(Session& sess)=0;
-    virtual std::string toString() const=0;
+    ActionStatus getStatus(){ }
+    virtual void act(Session& sess){}
+    virtual std::string toString(){}
 protected:
-    void complete();
-    void error(const std::string& errorMsg);
-    std::string getErrorMsg() const;
+    void complete(){}
+    void error(const std::string& errorMsg){}
+    std::string getErrorMsg(){}
 private:
     std::string errorMsg;
     ActionStatus status;
-}
+};
 
 class CreateUser  : public BaseAction {
 public:

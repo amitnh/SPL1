@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/User.h
+vector
+-
+string
+-
+unordered_set
+-
+unordered_map
+-
+
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/User.cpp
+../include/User.h
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/User.h
+

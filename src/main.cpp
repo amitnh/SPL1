@@ -1,5 +1,12 @@
 #include <iostream>
 #include "../include/Session.h"
+#include "../include/Action.h"
+#include "../include/json.hpp"
+#include "../include/User.h"
+#include "../include/Watchable.h"
+
+
+
 using namespace std;
 
 int main(int argc, char** argv){

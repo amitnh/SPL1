@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/kapelnik/Apps/Clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /users/studs/bsc/2020/amitnag/Desktop/CLion-2019.2.5/clion-2019.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/kapelnik/Apps/Clion/bin/cmake/linux/bin/cmake -E remove -f
+RM = /users/studs/bsc/2020/amitnag/Desktop/CLion-2019.2.5/clion-2019.2.5/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kapelnik/Desktop/cpp_projects/spl1
+CMAKE_SOURCE_DIR = /users/studs/bsc/2020/amitnag/Desktop/SPL1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kapelnik/Desktop/cpp_projects/spl1/cmake-build-debug
+CMAKE_BINARY_DIR = /users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/kapelnik/Desktop/cpp_projects/spl1/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/kapelnik/Apps/Clion/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/users/studs/bsc/2020/amitnag/Desktop/CLion-2019.2.5/clion-2019.2.5/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/kapelnik/Apps/Clion/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/users/studs/bsc/2020/amitnag/Desktop/CLion-2019.2.5/clion-2019.2.5/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kapelnik/Desktop/cpp_projects/spl1/cmake-build-debug/CMakeFiles /home/kapelnik/Desktop/cpp_projects/spl1/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/CMakeFiles /users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kapelnik/Desktop/cpp_projects/spl1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -110,6 +110,154 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named spl1
+
+# Build rule for target.
+spl1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 spl1
+.PHONY : spl1
+
+# fast build rule for target.
+spl1/fast:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/build
+.PHONY : spl1/fast
+
+src/Action.o: src/Action.cpp.o
+
+.PHONY : src/Action.o
+
+# target to build an object file
+src/Action.cpp.o:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Action.cpp.o
+.PHONY : src/Action.cpp.o
+
+src/Action.i: src/Action.cpp.i
+
+.PHONY : src/Action.i
+
+# target to preprocess a source file
+src/Action.cpp.i:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Action.cpp.i
+.PHONY : src/Action.cpp.i
+
+src/Action.s: src/Action.cpp.s
+
+.PHONY : src/Action.s
+
+# target to generate assembly for a file
+src/Action.cpp.s:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Action.cpp.s
+.PHONY : src/Action.cpp.s
+
+src/Session.o: src/Session.cpp.o
+
+.PHONY : src/Session.o
+
+# target to build an object file
+src/Session.cpp.o:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Session.cpp.o
+.PHONY : src/Session.cpp.o
+
+src/Session.i: src/Session.cpp.i
+
+.PHONY : src/Session.i
+
+# target to preprocess a source file
+src/Session.cpp.i:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Session.cpp.i
+.PHONY : src/Session.cpp.i
+
+src/Session.s: src/Session.cpp.s
+
+.PHONY : src/Session.s
+
+# target to generate assembly for a file
+src/Session.cpp.s:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Session.cpp.s
+.PHONY : src/Session.cpp.s
+
+src/User.o: src/User.cpp.o
+
+.PHONY : src/User.o
+
+# target to build an object file
+src/User.cpp.o:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/User.cpp.o
+.PHONY : src/User.cpp.o
+
+src/User.i: src/User.cpp.i
+
+.PHONY : src/User.i
+
+# target to preprocess a source file
+src/User.cpp.i:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/User.cpp.i
+.PHONY : src/User.cpp.i
+
+src/User.s: src/User.cpp.s
+
+.PHONY : src/User.s
+
+# target to generate assembly for a file
+src/User.cpp.s:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/User.cpp.s
+.PHONY : src/User.cpp.s
+
+src/Wachable.o: src/Wachable.cpp.o
+
+.PHONY : src/Wachable.o
+
+# target to build an object file
+src/Wachable.cpp.o:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Wachable.cpp.o
+.PHONY : src/Wachable.cpp.o
+
+src/Wachable.i: src/Wachable.cpp.i
+
+.PHONY : src/Wachable.i
+
+# target to preprocess a source file
+src/Wachable.cpp.i:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Wachable.cpp.i
+.PHONY : src/Wachable.cpp.i
+
+src/Wachable.s: src/Wachable.cpp.s
+
+.PHONY : src/Wachable.s
+
+# target to generate assembly for a file
+src/Wachable.cpp.s:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Wachable.cpp.s
+.PHONY : src/Wachable.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -117,7 +265,23 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... spl1"
 	@echo "... edit_cache"
+	@echo "... src/Action.o"
+	@echo "... src/Action.i"
+	@echo "... src/Action.s"
+	@echo "... src/Session.o"
+	@echo "... src/Session.i"
+	@echo "... src/Session.s"
+	@echo "... src/User.o"
+	@echo "... src/User.i"
+	@echo "... src/User.s"
+	@echo "... src/Wachable.o"
+	@echo "... src/Wachable.i"
+	@echo "... src/Wachable.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
