@@ -161,6 +161,10 @@ void Session::add_actionlog(BaseAction &action) {
     actionsLog.push_back(&action);
 }
 
+User &Session::get_user_by_name(std::string name) {
+    return <#initializer#>;
+}
+
 User& getActiveUser()
     {
         return *activeUser;

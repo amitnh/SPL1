@@ -31,13 +31,14 @@ ActionStatus BaseAction::getStatus() const {
     void CreateUser::act(Session& sess)
     {
         sess.add_actionlog(*this);
-        //std::string user_name,recommendation_algorithm;
-        //sess.addUser();
         std::vector<std::string> command = sess.get_command();
         if (command.size()<3)
             error("/nThe command is too short for Create User action");
         else if (command.at(2)!="len"|command.at(2)!="rer"|command.at(2)!="gen") {
             error("/nWrong recommendation algorithm, use only 'len','gen' or 'rer' ");
+        }
+        else if (sess.get_user_by_name(command.at(1))== nullptr){
+            error("/nName already exists");
         }
         else
         {
