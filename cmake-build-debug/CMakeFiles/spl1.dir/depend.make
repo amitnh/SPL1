@@ -22,10 +22,10 @@ CMakeFiles/spl1.dir/src/Wachable.cpp.o: ../include/User.h
 CMakeFiles/spl1.dir/src/Wachable.cpp.o: ../include/Watchable.h
 CMakeFiles/spl1.dir/src/Wachable.cpp.o: ../src/Wachable.cpp
 
-CMakeFiles/spl1.dir/src/main.cpp.o: /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Action.h
-CMakeFiles/spl1.dir/src/main.cpp.o: /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Session.h
-CMakeFiles/spl1.dir/src/main.cpp.o: /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/User.h
-CMakeFiles/spl1.dir/src/main.cpp.o: /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Watchable.h
-CMakeFiles/spl1.dir/src/main.cpp.o: /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/json.hpp
-CMakeFiles/spl1.dir/src/main.cpp.o: /users/studs/bsc/2020/amitnag/Desktop/SPL1/src/main.cpp
+CMakeFiles/spl1.dir/src/main.cpp.o: ../include/Action.h
+CMakeFiles/spl1.dir/src/main.cpp.o: ../include/Session.h
+CMakeFiles/spl1.dir/src/main.cpp.o: ../include/User.h
+CMakeFiles/spl1.dir/src/main.cpp.o: ../include/Watchable.h
+CMakeFiles/spl1.dir/src/main.cpp.o: ../include/json.hpp
+CMakeFiles/spl1.dir/src/main.cpp.o: ../src/main.cpp
 

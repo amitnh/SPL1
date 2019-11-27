@@ -35,7 +35,7 @@ Watchable *Movie::getNextWatchable(Session &s) const {
 std::string Movie::toString() const {
     //<content_id> <content_name> <content_length>minutes[<tag_1>, <tag_2>, ..., <tag_n>]
     std::string s;
-    s = "\n" + to_string(this->get_id()) + " " + this->get_name() + " " + to_string(this->get_length()) + " minutes [";
+    s = "\n" + to_string(this->get_id()) + ". " + this->get_name() + " " + to_string(this->get_length()) + " minutes [";
     for ( auto i : get_tags() ) // runs on all the vector in tags
         s +=  i + ", ";
     s = s.substr(0, s.size()-2); // remove the last ", "
@@ -54,7 +54,7 @@ std::string Episode::toString() const {
     //s= +"S" + season.toString() + "E"+ episode.toString() + "[";
 
     std::string s;
-    s = "\n" + to_string(this->get_id()) + " " + this->get_seriesName() + " " + to_string(this->get_length()) + " minutes S" + to_string(get_season()) +"E" + to_string(get_episode()) +" [";
+    s = "\n" + to_string(this->get_id()) + ". " + this->get_seriesName() + " " + to_string(this->get_length()) + " minutes S" + to_string(get_season()) +"E" + to_string(get_episode()) +" [";
 
     for ( auto i : get_tags() ) // runs on all the vector in tags
         s +=  i + ", ";

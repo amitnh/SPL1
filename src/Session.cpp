@@ -31,7 +31,7 @@ User* activeUser;
         i>>j; // j has all watchable content
         json jj =j["movies"];
         std::vector<std::string> tags;
-        int index =0;
+        int index =1;
         for(int i=0; i<jj.size();++i){
             for(int k=0; k<jj[i]["tags"].size();++k){
                 tags.push_back(jj[i]["tags"][k]);
@@ -74,8 +74,76 @@ User &Session::get_activeUser() {
 }
 
 void Session::start() {
-       // cout<< content.at(6)->toString();
+        //for(int i=0;i<200;i++)
+        //cout<< content.at(i)->toString();
+        std::string input;
+    while (input!="start"){cin>>input;} // wait for "start" command
+        while (input!= "exit")
+        {
+            cin>>input;
+            command = split(input);
+            BaseAction* action;
+            if (command.at(0)=="createuser")
+            {
+                action = new CreateUser();
+                action->act(*this);
+            }
+            else if (command.at(0)=="changeuser")
+            {
+                action = new ChangeActiveUser();
+                action->act(*this);
+            }
+            else if (command.at(0)=="deleteuser")
+            {
+                action = new DeleteUser();
+                action->act(*this);
+            }
+            else if (command.at(0)=="dupuser")
+            {
+                action = new DuplicateUser();
+                action->act(*this);
+            }
+            else if (command.at(0)=="content")
+            {
+                action = new PrintContentList();
+                action->act(*this);
+            }
+            else if (command.at(0)=="watchhist")
+            {
+                action = new PrintWatchHistory();
+                action->act(*this);
+            }
+            else if (command.at(0)=="watch")
+            {
+                action = new Watch();
+                action->act(*this);
+            }
+            else if (command.at(0)=="log")
+            {
+                action = new PrintActionsLog();
+                action->act(*this);
+            }
+        }
+}
 
+std::vector<std::string> Session::split(std::string str) {
+        vector<std::string> output;
+        string word = "";
+        for (auto x : str)
+        {
+            if (x == ' ')
+            {
+                output.push_back(word);
+                word = "";
+            }
+            else
+                word = word + x;
+        }
+        output.push_back(word);
+}
+
+std::vector<std::string> Session::get_command() {
+    return command;
 }
 
 

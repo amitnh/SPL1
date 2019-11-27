@@ -4,14 +4,27 @@
 #include <string>
 #include <iostream>
 #include "../include/Session.h"
+#include "../include/Action.h"
+
 
 //enum ActionStatus{PENDING, COMPLETED, ERROR}
 
 //class BaseAction::{
     BaseAction::BaseAction():status{PENDING}{}
-    ActionStatus getStatus(){ }
-    void BaseAction::act(Session& sess){}
-    std::string toString(){}
+
+void BaseAction::complete() {
+
+}
+
+void BaseAction::error(const std::string &errorMsg) {
+
+}
+
+ActionStatus BaseAction::getStatus() const {
+    return status;
+}
+
+std::string toString(){}
     void complete(){}
     void error(const std::string& errorMsg){}
     std::string getErrorMsg(){}
@@ -22,8 +35,12 @@
 //class CreateUser  : public BaseAction {
     void CreateUser::act(Session& sess)
     {
-        std::string user_name,recommendation_algorithm;
+        //std::string user_name,recommendation_algorithm;
         //sess.addUser();
+        std::vector<std::string> command = sess.get_command();
+        if (command.at(2)!="len"|command.at(2)!="rer"|command.at(2)!="gen") {
+            //error
+        }
     }
     std::string CreateUser::toString() const
     {
