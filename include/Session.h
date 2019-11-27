@@ -20,7 +20,7 @@ public:
     User& get_activeUser();
     void start();
     void add_user(User *user);
-    void add_actionlog(BaseAction action);
+    void add_actionlog(BaseAction &action);
     std::vector<std::string> split(std::string str);
     std::vector<std::string> get_command(); // inputs separate by words
 private:

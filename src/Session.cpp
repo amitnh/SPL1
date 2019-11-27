@@ -153,7 +153,7 @@ void Session::add_user(User *user)     {        //******add to userMap
 
 }
 
-void Session::add_actionlog(BaseAction action) {
+void Session::add_actionlog(BaseAction &action) {
     actionsLog.push_back(&action);
 }
 
