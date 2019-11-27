@@ -22,7 +22,8 @@ User* activeUser;
         User* defaultUser = new LengthRecommenderUser("default");
         activeUser = defaultUser;
         //******add to userMap
-
+        pair<std::string,User*> upair(defaultUser->getName(),defaultUser);
+        userMap.insert(upair);
         //Read Config File
         //MOVIES
         std::ifstream i(configFilePath);
@@ -146,12 +147,17 @@ std::vector<std::string> Session::get_command() {
     return command;
 }
 
+void Session::add_user(User *user)     {        //******add to userMap
+    pair<std::string,User*> upair(user->getName(),user);
+    userMap.insert(upair);
 
-void addUser(User*)
-    {
-        // add to userMap
-    }
-    User& getActiveUser()
+}
+
+void Session::add_actionlog(BaseAction action) {
+    actionsLog.push_back(&action);
+}
+
+User& getActiveUser()
     {
         return *activeUser;
     }
