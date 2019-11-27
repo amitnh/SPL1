@@ -25,7 +25,8 @@ User* activeUser;
 
         //Read Config File
         //MOVIES
-        std::ifstream i("./include/config1.json");
+        std::ifstream i(configFilePath);
+        //std::ifstream i("./include/config1.json");
         json j;
         i>>j; // j has all watchable content
         json jj =j["movies"];
