@@ -54,7 +54,7 @@ ActionStatus BaseAction::getStatus() const {
     }
     std::string CreateUser::toString() const
     {
-       // cout<< "CreateUser " + CreateUser.toString();
+      return "CreateUser "  + std::to_string(this->getStatus());
     }
 
 //class ChangeActiveUser : public BaseAction {
