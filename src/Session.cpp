@@ -62,8 +62,6 @@ User* activeUser;
             tags.clear();
 
         }
-        for(int i=0;i<200;i++)
-        cout<< content.at(i)->toString();
     }
     Session::~Session()  {}    //Destructor
     Session::Session(const Session &other) {}     //Copy constructor
@@ -76,7 +74,8 @@ User &Session::get_activeUser() {
 }
 
 void Session::start() {
-        cout<< content.at(6)->toString();
+       // cout<< content.at(6)->toString();
+
 }
 
 
