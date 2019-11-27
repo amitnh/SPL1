@@ -17,6 +17,8 @@ public:
     Session(Session &&other);      //Move constructor
     Session& operator=(const Session &other);   //Copy Assignment           RULE OF 5
     Session& operator=(Session &&other);   //Copy Assignment
+
+    User& get_activeUser();
     void start();
 private:
     std::vector<Watchable*> content;

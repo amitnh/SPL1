@@ -8,11 +8,19 @@ CMakeFiles/spl1.dir/src/Action.cpp.o
 CMakeFiles/spl1.dir/src/Session.cpp.o
  /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Action.h
  /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Session.h
+ /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/User.h
+ /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Watchable.h
+ /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/json.hpp
  /users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Session.cpp
 CMakeFiles/spl1.dir/src/User.cpp.o
  /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/User.h
+ /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Watchable.h
  /users/studs/bsc/2020/amitnag/Desktop/SPL1/src/User.cpp
 CMakeFiles/spl1.dir/src/Wachable.cpp.o
+ /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Action.h
+ /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Session.h
+ /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/User.h
+ /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Watchable.h
  /users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Wachable.cpp
 CMakeFiles/spl1.dir/src/main.cpp.o
  /users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Action.h

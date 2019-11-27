@@ -4,9 +4,10 @@
 
 #include "../include/Session.h"
 #include "../include/User.h"
+#include "../include/json.hpp"
+#include "../include/Watchable.h"
 
 #include <iostream>
-//#include <json.hpp>
 #include <fstream>
 #include <ostream>
 using json=nlohmann::json;
@@ -18,8 +19,8 @@ User* activeUser;
 
     Session::Session(const std::string &configFilePath):content(), actionsLog(), userMap(){         //constructor
         //insert from json file to watchable vector "content"
-        User firstuser = new LengthRecommenderUser("default");
-        activeUser = *firstuser;
+        User* defaultUser = new LengthRecommenderUser("default");
+        activeUser = defaultUser;
         //******add to userMap
 
         //Read Config File
@@ -34,7 +35,7 @@ User* activeUser;
             for(int k=0; k<jj[i]["tags"].size();++k){
                 tags.push_back(jj[i]["tags"][k]);
             }
-            Watchable mov = new Movie(index, jj[i]["name"],jj[i]["length"], tags );
+            Watchable* mov = new Movie(index, jj[i]["name"],jj[i]["length"], tags );
             tags.empty();
             index++;
             content.push_back(mov);
@@ -52,7 +53,7 @@ User* activeUser;
             }
             for(int i=0; i<jj[i]["seasons"].size();i++) {
                 for(int k=0;k< jj[i]["seasons"][i];++k) {
-                    Watchable epi = new Episode(index, jj[i]["name"],jj[i]["episode_length"],jj[i]["season"],i,k ,tags );
+                    Watchable* epi = new Episode(index, jj[i]["name"],jj[i]["episode_length"],jj[i]["season"],i,k ,tags );
                     tags.empty();
                     index++;
                     content.push_back(mov);
@@ -66,7 +67,13 @@ User* activeUser;
     Session::Session(const Session &other) {}     //Copy constructor
     Session::Session(Session &&other) {}     //Move constructor
     Session&     Session::operator=(const Session &other) {}  //Copy Assignment           RULE OF 5
-    Session&     Session::operator=(Session &&other){}   //Copy Assignment
+    Session&     Session::operator=(Session &&other){}
+
+User &Session::get_activeUser() {
+    return *activeUser;
+}
+
+//Copy Assignment
     void start(){
 
     }

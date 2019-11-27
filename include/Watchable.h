@@ -14,7 +14,7 @@ public:
     virtual std::string toString() const = 0;
     virtual Watchable* getNextWatchable(Session& s) const = 0;
     std::vector<std::string>& get_tags();
-    lond get_id();
+    const long get_id() ;
     int get_length();
 private:
     const long id;

@@ -16,12 +16,6 @@
     // User(const User &other):name(other.name), history(other.history) {}     //Copy constructor
     //User& User::operator=(User &&other){}   //Copy Assignment
 
-
-
-    Watchable* User::getRecommendation(Session& s)
-    {
-
-    }
     std::string User::getName() const {
         return this->name;
     }

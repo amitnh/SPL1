@@ -5,6 +5,8 @@
 #include <vector>
 #include "../include/Watchable.h"
 #include "../include/Session.h"
+#include "../include/User.h"
+
 /*
 class Watchable{
 public:
@@ -65,15 +67,14 @@ private:
 }*/
 Watchable::Watchable(long id, int length, const std::vector<std::string> &tags):id{id},length{length},tags{tags}{}
 Watchable::~Watchable() {
-    for ( auto i : get_tags() ) // runs on all the vector in tags
-        delete i;
+
 }
 
 std::vector<std::string> &Watchable::get_tags() {
     return tags;
 }
 
-lond Watchable::get_id() {
+const long Watchable::get_id(){
     return id;
 }
 
@@ -84,7 +85,7 @@ int Watchable::get_length() {
 Movie::Movie(long id, const std::string &name, int length, const std::vector<std::string> &tags):Watchable(id,length,tags),name{name}{}
 
 Watchable *Movie::getNextWatchable(Session &s) const {
-    return s->getActiveUser().getRecommendation();
+    return s.get_activeUser().getRecommendation(s);
 }
 
 std::string Movie::toString() const {
@@ -115,8 +116,8 @@ std::string Episode::toString() const {
 }
 
 Watchable *Episode::getNextWatchable(Session &s) const {
-    Session* s = this;
-    return s*.getActiveUser().getRecommendation();
+    return s.get_activeUser().getRecommendation(s);
+
 }
 
 
