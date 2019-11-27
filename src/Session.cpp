@@ -79,11 +79,14 @@ void Session::start() {
         //cout<< content.at(i)->toString();
         std::string input;
     while (input!="start"){cin>>input;} // wait for "start" command
+    cout << "splflix is now on" << endl;
         while (input!= "exit")
         {
-            cin>>input;
+            //cin>>input;
+            input="createuser tal len";
             command = split(input);
             BaseAction* action;
+            cout<<"0. " + command.at(0) +" 1. "+ command.at(1) + " 2. " + command.at(2);
             if (command.at(0)=="createuser")
             {
                 action = new CreateUser();
@@ -141,6 +144,7 @@ std::vector<std::string> Session::split(std::string str) {
                 word = word + x;
         }
         output.push_back(word);
+        return output;
 }
 
 std::vector<std::string> Session::get_command() {

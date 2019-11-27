@@ -12,7 +12,6 @@
 
 //class BaseAction::{
     BaseAction::BaseAction():status{PENDING}{
-    add_actionlog(this);
 }
 
 void BaseAction::complete() {
@@ -31,6 +30,7 @@ ActionStatus BaseAction::getStatus() const {
 //class CreateUser  : public BaseAction {
     void CreateUser::act(Session& sess)
     {
+        sess.add_actionlog(*this);
         //std::string user_name,recommendation_algorithm;
         //sess.addUser();
         std::vector<std::string> command = sess.get_command();

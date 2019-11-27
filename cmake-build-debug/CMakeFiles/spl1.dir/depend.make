@@ -3,6 +3,8 @@
 
 CMakeFiles/spl1.dir/src/Action.cpp.o: ../include/Action.h
 CMakeFiles/spl1.dir/src/Action.cpp.o: ../include/Session.h
+CMakeFiles/spl1.dir/src/Action.cpp.o: ../include/User.h
+CMakeFiles/spl1.dir/src/Action.cpp.o: ../include/Watchable.h
 CMakeFiles/spl1.dir/src/Action.cpp.o: ../src/Action.cpp
 
 CMakeFiles/spl1.dir/src/Session.cpp.o: ../include/Action.h
