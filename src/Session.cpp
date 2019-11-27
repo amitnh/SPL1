@@ -37,7 +37,7 @@ User* activeUser;
                 tags.push_back(jj[i]["tags"][k]);
             }
             Watchable* mov = new Movie(index, jj[i]["name"],jj[i]["length"], tags );
-            tags.empty();
+            tags.clear();
             index++;
             content.push_back(mov);
                     // Movie(long id, const std::string& name, int length, const std::vector<std::string>& tags)
@@ -47,15 +47,13 @@ User* activeUser;
         jj= j["tv_series"];
 
         for(int i=0; i<jj.size();++i){
-            cout << jj[i]["tags"]<< endl;
-
             for(int k=0; k<jj[i]["tags"].size();++k){
                 tags.push_back(jj[i]["tags"][k]);
             }
             for(int i=0; i<jj[i]["seasons"].size();i++) {
                 for(int k=0;k< jj[i]["seasons"][i];++k) {
                     Watchable* episode = new Episode(index, jj[i]["name"],jj[i]["episode_length"],i,k,tags );
-                    tags.empty();
+                    tags.clear();
                     index++;
                     content.push_back(episode);
                 }
@@ -74,11 +72,12 @@ User &Session::get_activeUser() {
     return *activeUser;
 }
 
-//Copy Assignment
-    void start(){
+void Session::start() {
+ cout<< content.at(6)->toString();
+}
 
-    }
-    void addUser(User*)
+
+void addUser(User*)
     {
         // add to userMap
     }
