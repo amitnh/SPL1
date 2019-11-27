@@ -82,7 +82,9 @@ int Watchable::get_length() {
     return length;
 }
 
-Movie::Movie(long id, const std::string &name, int length, const std::vector<std::string> &tags):Watchable(id,length,tags),name{name}{}
+Movie::Movie(long id, const std::string &name, int length, const std::vector<std::string> &tags):Watchable(id,length,tags){
+    this->name=name;
+}
 
 Watchable *Movie::getNextWatchable(Session &s) const {
     return s.get_activeUser().getRecommendation(s);
@@ -91,26 +93,26 @@ Watchable *Movie::getNextWatchable(Session &s) const {
 std::string Movie::toString() const {
     //<content_id> <content_name> <content_length>minutes[<tag_1>, <tag_2>, ..., <tag_n>]
     std::string s;
-    s = "\n" + this->get_id().toString() + this.*name + this->get_length().toString() + "[";
-    for ( auto i : get_tags() ) // runs on all the vector in tags
-        s+= i.toString() + ", ";
-    s = s.substr(0, myString.size()-2); // remove the last ", "
+   // s = "\n" + this->get_id().toString() + this.*name + this->get_length().toString() + "[";
+    //for ( auto i : get_tags() ) // runs on all the vector in tags
+     //   s+= i.toString() + ", ";
+    s = s.substr(0, s.size()-2); // remove the last ", "
     s+="]";
     return s;
 }
-Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags):Watchable(id,length,tags),season{season},episode{episode},seriesName{seriesName}{}
-
-const std::vector<std::string> &tags) {
-
+Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags):Watchable(id,length,tags){
+    this->season=season;
+    this->episode=episode;
+    this->seriesName=seriesName;
 }
 
 std::string Episode::toString() const {
     //<content_id> <content_name> <content_length>minutes[<tag_1>, <tag_2>, ..., <tag_n>]
     std::string s;
-    s= "\n" + this.id.toString() + this.*seriesName + this->length.toString() +"S" + season.toString() + "E"+ episode.toString() + "[";
-    for ( auto i : tags ) // runs on all the vector in tags
-       s+= i.toString() + ", ";
-    s = s.substr(0, myString.size()-2); // remove the last ", "
+    //s= "\n" + this.id.toString() + this.*seriesName + this->length.toString() +"S" + season.toString() + "E"+ episode.toString() + "[";
+    //for ( auto i : tags ) // runs on all the vector in tags
+    //   s+= i.toString() + ", ";
+    s = s.substr(0, s.size()-2); // remove the last ", "
     s+="]";
     return s;
 }

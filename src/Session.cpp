@@ -53,10 +53,10 @@ User* activeUser;
             }
             for(int i=0; i<jj[i]["seasons"].size();i++) {
                 for(int k=0;k< jj[i]["seasons"][i];++k) {
-                    Watchable* epi = new Episode(index, jj[i]["name"],jj[i]["episode_length"],jj[i]["season"],i,k ,tags );
+                    Watchable* episode = new Episode(index, jj[i]["name"],jj[i]["episode_length"],i,k,tags );
                     tags.empty();
                     index++;
-                    content.push_back(mov);
+                    content.push_back(episode);
                 }
 
             // Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags):
@@ -86,4 +86,3 @@ User &Session::get_activeUser() {
         return *activeUser;
     }
 
-}
