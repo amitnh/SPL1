@@ -3,8 +3,10 @@
 //
 
 #include "../include/Session.h"
+#include "../include/User.h"
+
 #include <iostream>
-#include <json.hpp>
+//#include <json.hpp>
 #include <fstream>
 #include <ostream>
 using json=nlohmann::json;

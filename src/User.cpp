@@ -3,12 +3,14 @@
 //
 
 #include "../include/User.h"
+#include "../include/Watchable.h"
+
+
 //#include <nlohmann/json.hpp>
 
     User::User(const std::string &name):name(name),history() {}
 
     //User::~User(){}  //Destructor
-
     //User::User(User &&other) {}     //Move constructor
     //User&  User::operator=(const User &other){}   //Copy Assignment           RULE OF 5
     // User(const User &other):name(other.name), history(other.history) {}     //Copy constructor
