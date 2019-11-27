@@ -86,7 +86,6 @@ void Session::start() {
             input="createuser tal len";
             command = split(input);
             BaseAction* action;
-            cout<<"0. " + command.at(0) +" 1. "+ command.at(1) + " 2. " + command.at(2);
             if (command.at(0)=="createuser")
             {
                 action = new CreateUser();
@@ -167,7 +166,9 @@ void Session::print_actionlog() {
 }
 
 User &Session::get_user_by_name(std::string name) {
-    return <#initializer#>;
+        if( userMap.find(name)== userMap.end())
+            return *userMap.end().operator*().second;
+    return null;
 }
 
 User& getActiveUser()

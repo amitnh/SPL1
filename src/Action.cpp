@@ -37,7 +37,7 @@ ActionStatus BaseAction::getStatus() const {
         else if (command.at(2)!="len"|command.at(2)!="rer"|command.at(2)!="gen") {
             error("/nWrong recommendation algorithm, use only 'len','gen' or 'rer' ");
         }
-        else if (sess.get_user_by_name(command.at(1))== nullptr){
+        else if (sess.get_user_by_name(command.at(1)) != nullptr){
             error("/nName already exists");
         }
         else
