@@ -46,21 +46,24 @@ User* activeUser;
 
         jj= j["tv_series"];
 
-        for(int i=0; i<jj.size();++i){
-            for(int k=0; k<jj[i]["tags"].size();++k){
-                tags.push_back(jj[i]["tags"][k]);
+        for(int series=0; series<jj.size();++series){
+            for(int k=0; k<jj[series]["tags"].size();++k){
+                tags.push_back(jj[series]["tags"][k]);
             }
-            for(int i=0; i<jj[i]["seasons"].size();i++) {
-                for(int k=0;k< jj[i]["seasons"][i];++k) {
-                    Watchable* episode = new Episode(index, jj[i]["name"],jj[i]["episode_length"],i,k,tags );
-                    tags.clear();
+            for(int season=0; season<jj[series]["seasons"].size();++season) {
+                for(int episode=0;episode< jj[series]["seasons"][season];++episode) {
+                    Watchable* epi = new Episode(index, jj[series]["name"],jj[series]["episode_length"],season+1,episode+1,tags );
                     index++;
-                    content.push_back(episode);
+                    content.push_back(epi);
                 }
 
             // Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags):
             }
+            tags.clear();
+
         }
+        for(int i=0;i<200;i++)
+        cout<< content.at(i)->toString();
     }
     Session::~Session()  {}    //Destructor
     Session::Session(const Session &other) {}     //Copy constructor
@@ -73,7 +76,7 @@ User &Session::get_activeUser() {
 }
 
 void Session::start() {
- cout<< content.at(6)->toString();
+        cout<< content.at(6)->toString();
 }
 
 
