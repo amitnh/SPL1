@@ -161,6 +161,11 @@ void Session::add_actionlog(BaseAction &action) {
     actionsLog.push_back(&action);
 }
 
+void Session::print_actionlog() {
+    for(int i=0; i<actionsLog.size();++i)
+        cout<<actionsLog.at(i)->toString() <<endl;
+}
+
 User& getActiveUser()
     {
         return *activeUser;

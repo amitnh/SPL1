@@ -19,6 +19,7 @@ public:
     Session& operator=(Session &&other);   //Copy Assignment
     User& get_activeUser();
     void start();
+    void print_actionlog();
     void add_user(User *user);
     void add_actionlog(BaseAction &action);
     std::vector<std::string> split(std::string str);
