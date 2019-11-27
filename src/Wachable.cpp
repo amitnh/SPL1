@@ -65,7 +65,6 @@ std::string Episode::toString() const {
 
 Watchable *Episode::getNextWatchable(Session &s) const {
     return s.get_activeUser().getRecommendation(s);
-
 }
 
 std::string Episode::get_seriesName() const {
