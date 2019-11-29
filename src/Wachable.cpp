@@ -69,12 +69,10 @@ std::string Episode::toString() const {
 
 Watchable *Episode::getNextWatchable(Session &s) const {
     if(s.get_contant().at(this->get_id()+1)->get_name()==get_name()) {
-        if(!s.get_activeUser().searchinhistory(this->get_id()+1))
+        if (!s.get_activeUser().searchinhistory(this->get_id() + 1))
             return s.get_contant().at(this->get_id() + 1);
-        return s.get_activeUser().getRecommendation(s);
     }
-    else
-       return s.get_activeUser().getRecommendation(s);
+    return s.get_activeUser().getRecommendation(s);
 }
 
 

@@ -43,7 +43,8 @@ bool User::searchinhistory(int id) {
 LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name) {}//use USER constractor}
 
     Watchable* LengthRecommenderUser::getRecommendation(Session& sess) {
-        int min=2275488857, id=0;
+        set_avg_his_length();
+        int min=9999999, id=0;
         for(auto x : sess.get_contant()){
            if(!searchinhistory(x->get_id()))
                 if(abs(x->get_length()-avg_his_length)<min) {
@@ -54,8 +55,10 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name)
         return sess.get_contant().at(id);
 
     }
-void LengthRecommenderUser::set_avg_his_length(int new_average) {
-    avg_his_length = new_average;
+void LengthRecommenderUser::set_avg_his_length() {
+        for(auto x : history)
+            avg_his_length=avg_his_length+x->get_length();
+        avg_his_length = avg_his_length/history.size();
 }
 
 int LengthRecommenderUser::get_avg_his_length() {
