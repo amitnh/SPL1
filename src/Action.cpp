@@ -23,7 +23,7 @@ status=COMPLETED;
 void BaseAction::error(const std::string &errorMsg) {
     this->errorMsg=errorMsg;
     std::cout<<errorMsg;
-    status==ERROR;
+    status=ERROR;
 }
 
 ActionStatus BaseAction::getStatus() const {
@@ -109,6 +109,9 @@ std::string BaseAction::get_errorMsg() const {
         error("The command is too short for the action");
     else if (!sess.isTaken(command.at(1))) {
         error("This user name is not in the system");
+    }
+    else if (command.at(1)==sess.get_activeUser().getName()) {
+        error("You can't delete the active user, change user first");
     }
     else
     {

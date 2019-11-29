@@ -117,7 +117,7 @@ void Session::start() {
 
 std::vector<std::string> Session::split(std::string str) {
         vector<std::string> output;
-        string word = "";
+        string word;
         for (auto x : str)
         {
             if (x == ' ')
