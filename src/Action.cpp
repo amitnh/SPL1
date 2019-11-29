@@ -20,7 +20,7 @@ status=COMPLETED;
 
 void BaseAction::error(const std::string &errorMsg) {
     std::cout<<errorMsg;
-
+    status==ERROR;
 }
 
 ActionStatus BaseAction::getStatus() const {
@@ -33,12 +33,12 @@ ActionStatus BaseAction::getStatus() const {
         sess.add_actionlog(*this);
         std::vector<std::string> command = sess.get_command();
         if (command.size()<3)
-            error("/nThe command is too short for Create User action");
-        else if (command.at(2)!="len"|command.at(2)!="rer"|command.at(2)!="gen") {
-            error("/nWrong recommendation algorithm, use only 'len','gen' or 'rer' ");
+            error("\nThe command is too short for Create User action");
+        else if (command.at(2).compare("len")*command.at(2).compare("rer")*command.at(2).compare("gen")!=0) {
+            error("\nWrong recommendation algorithm, use only 'len','gen' or 'rer' ");
         }
         else if (sess.isTaken(command.at(1))){
-            error("/nName already exists");
+            error("\nName already exists");
         }
         else
         {
@@ -52,6 +52,7 @@ ActionStatus BaseAction::getStatus() const {
             sess.add_user(newUser);
             complete();
         }
+
     }
     std::string CreateUser::toString() const
     {

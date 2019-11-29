@@ -78,12 +78,12 @@ void Session::start() {
         //for(int i=0;i<200;i++)
         //cout<< content.at(i)->toString();
         std::string input;
-    while (input!="start"){cin>>input;} // wait for "start" command
+    while (input!="start"){std::getline(std::cin,input);} // wait for "start" command
     cout << "splflix is now on" << endl;
         while (input!= "exit")
         {
-            cin>>input;
-            //input="createuser tal len";
+            //std::getline(std::cin,input);
+            input="createuser tal len";
             command = split(input);
             BaseAction* action;
             if (command.at(0)=="createuser")
