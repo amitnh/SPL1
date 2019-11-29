@@ -168,6 +168,10 @@ User &Session::get_user_by_name(std::string name) {
             return *userMap.end().operator*().second;
 }
 
+std::vector<Watchable *> &Session::get_contant() {
+    return this->content;
+}
+
 User& getActiveUser()
     {
         return *activeUser;

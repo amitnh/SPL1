@@ -47,6 +47,7 @@ std::string Movie::get_name() const {
     return name;
 }
 
+
 Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags):Watchable(id,length,tags),season{season},episode{episode},seriesName{seriesName}{}
 
 std::string Episode::toString() const {
@@ -64,7 +65,13 @@ std::string Episode::toString() const {
 }
 
 Watchable *Episode::getNextWatchable(Session &s) const {
-    return s.get_activeUser().getRecommendation(s);
+    if(s.get_contant().at(this->get_id()+1)->get_name()==get_name()) {
+        if(!s.get_activeUser().searchinhistory(this->get_id()+1))
+            return s.get_contant().at(this->get_id() + 1);
+        return s.get_activeUser().getRecommendation(s);
+    }
+    else
+       return s.get_activeUser().getRecommendation(s);
 }
 
 std::string Episode::get_seriesName() const {
@@ -77,6 +84,10 @@ int Episode::get_season() const {
 
 int Episode::get_episode() const {
     return episode;
+}
+
+std::string Episode::get_name() const {
+    return seriesName;
 }
 
 
