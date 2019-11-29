@@ -30,7 +30,7 @@ public:
     virtual Watchable* getRecommendation(Session& s);
     User* clone(std::string newName);
     int get_avg_his_length();
-    void set_avg_his_length(int new_average);
+    void set_avg_his_length();
 
 private:
     int avg_his_length; //minutes average
