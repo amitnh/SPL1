@@ -90,7 +90,6 @@ std::string BaseAction::get_errorMsg() const {
         else
         {
             sess.set_activeUser(command.at(1));
-            cout<< sess.get_activeUser().getName()<<endl;
             complete();
         }
     }
@@ -204,7 +203,6 @@ std::string BaseAction::get_errorMsg() const {
         int id = 0;
         try { id_s >> id; }
         catch (const std::exception &e) { error("please choose a correct Id number"); }
-        id=id-1;
         if (id >= sess.get_content().size()) {
             error("Id out of bounds");
         }

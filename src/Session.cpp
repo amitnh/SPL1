@@ -32,7 +32,7 @@ User* activeUser;
         i>>j; // j has all watchable content
         json jj =j["movies"];
         std::vector<std::string> tags;
-        int index =1;
+        int index =0;
         for(int i=0; i<jj.size();++i){
             for(int k=0; k<jj[i]["tags"].size();++k){
                 tags.push_back(jj[i]["tags"][k]);

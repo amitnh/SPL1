@@ -35,7 +35,7 @@ Watchable *Movie::getNextWatchable(Session &s) const {
 std::string Movie::toString() const {
     //<content_id> <content_name> <content_length>minutes[<tag_1>, <tag_2>, ..., <tag_n>]
     std::string s;
-    s = to_string(this->get_id()) + ". " + this->get_name() + " " + to_string(this->get_length()) + " minutes [";
+    s = to_string(this->get_id()+1) + ". " + this->get_name() + " " + to_string(this->get_length()) + " minutes [";
     for ( auto i : get_tags() ) // runs on all the vector in tags
         s +=  i + ", ";
     s = s.substr(0, s.size()-2); // remove the last ", "
@@ -58,7 +58,7 @@ std::string Episode::toString() const {
     //s= +"S" + season.toString() + "E"+ episode.toString() + "[";
 
     std::string s;
-    s = "\n" + to_string(this->get_id()) + ". " + this->get_name() + " " + to_string(this->get_length()) + " minutes S" + to_string(get_season()) +"E" + to_string(get_episode()) +" [";
+    s = "\n" + to_string(this->get_id()+1) + ". " + this->get_name() + " " + to_string(this->get_length()) + " minutes S" + to_string(get_season()) +"E" + to_string(get_episode()) +" [";
 
     for ( auto i : get_tags() ) // runs on all the vector in tags
         s +=  i + ", ";
@@ -68,10 +68,10 @@ std::string Episode::toString() const {
 }
 
 Watchable *Episode::getNextWatchable(Session &s) const {
-    if(s.get_contant().at(this->get_id()+1)->get_name()==get_name()) {
-        if (!s.get_activeUser().searchinhistory(this->get_id() + 1))
-            return s.get_contant().at(this->get_id() + 1);
-    }
+    int cur_id = get_id();
+    if(s.get_contant().at(cur_id+1)->get_name()==get_name())
+        if(!s.get_activeUser().searchinhistory(cur_id+1))
+            return s.get_contant().at(cur_id+1);
     return s.get_activeUser().getRecommendation(s);
 }
 
