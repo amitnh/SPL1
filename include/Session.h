@@ -32,6 +32,7 @@ public:
     User& get_user_by_name(std::string name);
     std::vector<std::string> split(std::string str);
     std::vector<std::string> get_command(); // inputs separate by words
+    void set_command(std::vector<std::string> cmd);
 private:
     std::vector<std::string> command; // inputs separate by words
     std::vector<Watchable*> content;

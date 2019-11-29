@@ -185,6 +185,10 @@ std::vector<Watchable *> &Session::get_content() {
     return content;
 }
 
+void Session::set_command(std::vector<std::string> cmd ) {
+command = cmd;
+}
+
 User& getActiveUser()
     {
         return *activeUser;

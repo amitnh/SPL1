@@ -91,7 +91,7 @@ std::string Episode::get_name() const {
 }
 
 std::string Episode::get_full_name() const {
-    return seriesName + "S"+to_string(season) +"E" +to_string(episode);
+    return seriesName + " S"+to_string(season) +"E" +to_string(episode);
 }
 
 

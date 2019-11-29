@@ -171,9 +171,11 @@ std::string BaseAction::get_errorMsg() const {
     sess.add_actionlog(*this);
     std::vector<Watchable*>& history =  sess.get_activeUser().get_history();
     cout<<"Watch history for " + sess.get_activeUser().getName()<<endl;
+    int index=1;
     for(auto h: history)
     {
-        cout<<std::to_string(h->get_id())+". " + h->get_full_name()<<endl;
+        cout<<std::to_string(index)+". " + h->get_full_name()<<endl;
+        index++;
     }
     complete();
     }
@@ -198,6 +200,7 @@ std::string BaseAction::get_errorMsg() const {
         int id = 0;
         try { id_s >> id; }
         catch (const std::exception &e) { error("please choose a correct Id number"); }
+        id=id-1;
         if (id >= sess.get_content().size()) {
             error("Id out of bounds");
         }
@@ -210,9 +213,9 @@ std::string BaseAction::get_errorMsg() const {
             std::getline(std::cin, input); // waits for y/n
             if (input == "y") {
                 BaseAction *action = new Watch();
-                command.clear();
-                command.push_back("watch");
-                command.push_back(to_string(recommend->get_id()));
+                command.at(1)=to_string(recommend->get_id());
+                sess.set_command(command);
+
                 complete();
                 action->act(sess);
             }
