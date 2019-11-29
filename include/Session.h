@@ -29,7 +29,7 @@ public:
     bool isTaken(std::string name);
     std::vector<Watchable*> &get_contant();
 
-    User& get_user_by_name(std::string name);
+    User* get_user_by_name(std::string name);
     std::vector<std::string> split(std::string str);
     std::vector<std::string> get_command(); // inputs separate by words
     void set_command(std::vector<std::string> cmd);

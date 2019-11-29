@@ -26,8 +26,8 @@ using namespace std;
     }
 
 bool User::searchinhistory(int id) {
-    for(auto wtch : history)
-        if (wtch->get_id()==id)
+    for(auto watch : history)
+        if (watch->get_id()==id)
             return true;
         return false;
 

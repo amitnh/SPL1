@@ -137,7 +137,7 @@ std::string BaseAction::get_errorMsg() const {
     }
     else
     {
-        User* newUser = sess.get_user_by_name(command.at(1)).clone(command.at(2));
+        User* newUser = sess.get_user_by_name(command.at(1))->clone(command.at(2));
         sess.add_user(newUser);
         complete();
     }
@@ -171,11 +171,14 @@ std::string BaseAction::get_errorMsg() const {
     sess.add_actionlog(*this);
     std::vector<Watchable*>& history =  sess.get_activeUser().get_history();
     cout<<"Watch history for " + sess.get_activeUser().getName()<<endl;
-    int index=1;
-    for(auto h: history)
-    {
-        cout<<std::to_string(index)+". " + h->get_full_name()<<endl;
-        index++;
+    if (history.empty())
+        cout<< "There is no watching history"<<endl;
+    else {
+        int index = 1;
+        for (auto h: history) {
+            cout << std::to_string(index) + ". " + h->get_full_name() << endl;
+            index++;
+        }
     }
     complete();
     }

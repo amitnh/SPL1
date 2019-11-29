@@ -162,10 +162,10 @@ std::vector<BaseAction *>& Session::get_actionsLog() {
 }
 
 
-User &Session::get_user_by_name(std::string name) {
-        if(!isTaken(name))
+User* Session::get_user_by_name(std::string name) {
+        if(isTaken(name))
         if( userMap.find(name)== userMap.end())
-            return *userMap.end().operator*().second;
+            return userMap.end().operator*().second;
 }
 
 std::vector<Watchable *> &Session::get_contant() {
@@ -173,11 +173,11 @@ std::vector<Watchable *> &Session::get_contant() {
 }
 
 void Session::set_activeUser(std::string name) {
-        activeUser = &get_user_by_name(name);
+        activeUser = get_user_by_name(name);
 }
 
 void Session::delete_user(std::string name) {
-    delete &get_user_by_name(name);
+    delete get_user_by_name(name);
     userMap.erase(name);
 }
 
