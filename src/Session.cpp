@@ -6,7 +6,7 @@
 #include "../include/User.h"
 #include "../include/json.hpp"
 #include "../include/Watchable.h"
-
+#include <unordered_map>
 #include <iostream>
 #include <fstream>
 #include <ostream>
@@ -163,10 +163,12 @@ std::vector<BaseAction *>& Session::get_actionsLog() {
 
 
 User* Session::get_user_by_name(std::string name) {
-        if(isTaken(name))
-        if( userMap.find(name)== userMap.end())
-            return userMap.end().operator*().second;
+    if (isTaken(name)) {
+        std::unordered_map<std::string,User*> ::iterator x = userMap.find(name);
+        return x->second;
+    }
 }
+
 
 std::vector<Watchable *> &Session::get_contant() {
     return this->content;

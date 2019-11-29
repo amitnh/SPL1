@@ -90,6 +90,7 @@ std::string BaseAction::get_errorMsg() const {
         else
         {
             sess.set_activeUser(command.at(1));
+            cout<< sess.get_activeUser().getName()<<endl;
             complete();
         }
     }
