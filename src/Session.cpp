@@ -166,9 +166,17 @@ void Session::print_actionlog() {
 }
 
 bool Session::isTaken(std::string name) {
-    if( userMap.find(name)== userMap.end())
+    if( userMap.find(name)== userMap.end()) {
+        cout << "name available" << endl;
+
         return false;
+    }
+    cout << "name already taken"<< endl;
     return true;
+}
+
+std::vector<BaseAction *>& Session::get_actionsLog() {
+    return actionsLog;
 }
 
 /*

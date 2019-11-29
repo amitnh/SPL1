@@ -19,6 +19,7 @@ public:
     Session& operator=(Session &&other);   //Copy Assignment
     User& get_activeUser();
     void start();
+    std::vector<BaseAction*> &get_actionsLog();
     void print_actionlog();
     void add_user(User *user);
     void add_actionlog(BaseAction &action);

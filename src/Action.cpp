@@ -89,7 +89,13 @@ ActionStatus BaseAction::getStatus() const {
 
 
 //class PrintActionsLog : public BaseAction {
-    void PrintActionsLog::act(Session& sess){}
+    void PrintActionsLog::act(Session& sess){
+    std::vector<BaseAction*>& actionlogvec =  sess.get_actionsLog();
+    for(auto v: actionlogvec)
+    {
+        v->toString();
+    }
+}
     std::string PrintActionsLog::toString() const{}
 
 
