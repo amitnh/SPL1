@@ -53,7 +53,7 @@ User* activeUser;
             }
             for(int season=0; season<jj[series]["seasons"].size();++season) {
                 for(int episode=0;episode< jj[series]["seasons"][season];++episode) {
-                    Watchable* epi = new Episode(index, jj[series]["name"],jj[series]["episode_length"],season+1,episode+1,tags );
+                    Watchable* epi = new Episode(index, jj[series]["name"],jj[series]["episode_length"],season+1,episode+1,tags);
                     index++;
                     content.push_back(epi);
                 }
@@ -170,6 +170,19 @@ User &Session::get_user_by_name(std::string name) {
 
 std::vector<Watchable *> &Session::get_contant() {
     return this->content;
+}
+
+void Session::set_activeUser(std::string name) {
+        activeUser = &get_user_by_name(name);
+}
+
+void Session::delete_user(std::string name) {
+    delete &get_user_by_name(name);
+    userMap.erase(name);
+}
+
+std::vector<Watchable *> &Session::get_content() {
+    return content;
 }
 
 User& getActiveUser()

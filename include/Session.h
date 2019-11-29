@@ -18,9 +18,12 @@ public:
     Session& operator=(const Session &other);   //Copy Assignment           RULE OF 5
     Session& operator=(Session &&other);   //Copy Assignment
     User& get_activeUser();
+    void set_activeUser(std::string name);
+    void delete_user(std::string name);
     void start();
     std::vector<BaseAction*> &get_actionsLog();
     void print_actionlog();
+    std::vector<Watchable*> &get_content();
     void add_user(User *user);
     void add_actionlog(BaseAction &action);
     bool isTaken(std::string name);

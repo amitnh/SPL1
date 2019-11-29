@@ -12,7 +12,7 @@ using namespace std;
 //enum ActionStatus{PENDING, COMPLETED, ERROR}
 
 //class BaseAction::{
-    BaseAction::BaseAction():status{PENDING}{
+    BaseAction::BaseAction():status{PENDING},errorMsg{""}{
 }
 
 void BaseAction::complete() {
@@ -20,6 +20,7 @@ status=COMPLETED;
 }
 
 void BaseAction::error(const std::string &errorMsg) {
+    this->errorMsg=errorMsg;
     std::cout<<errorMsg;
     status==ERROR;
 }
@@ -37,18 +38,22 @@ std::string BaseAction::getStatusString(ActionStatus status) const {
         return "ERROR";
 }
 
+std::string BaseAction::get_errorMsg() const {
+    return errorMsg;
+}
+
 //class CreateUser  : public BaseAction {
     void CreateUser::act(Session& sess)
     {
         sess.add_actionlog(*this);
         std::vector<std::string> command = sess.get_command();
-        if (command.size()<3)
-            error("\nThe command is too short for Create User action");
+        if ((int)command.size()<3)
+            error("The command is too short for Create User action");
         else if (command.at(2).compare("len")*command.at(2).compare("rer")*command.at(2).compare("gen")!=0) {
-            error("\nWrong recommendation algorithm, use only 'len','gen' or 'rer' ");
+            error("Wrong recommendation algorithm, use only 'len','gen' or 'rer' ");
         }
         else if (sess.isTaken(command.at(1))){
-            error("\nName already exists");
+            error("Name already exists");
         }
         else
         {
@@ -66,31 +71,104 @@ std::string BaseAction::getStatusString(ActionStatus status) const {
     }
     std::string CreateUser::toString() const
     {
-      return "CreateUser "  + getStatusString(getStatus());
+        string s = "CreateUser "  + getStatusString(getStatus());
+        if (get_errorMsg()!="")
+            s+=":" + get_errorMsg();
+        return s;
     }
 
 //class ChangeActiveUser : public BaseAction {
-    void ChangeActiveUser::act(Session& sess){}
-    std::string ChangeActiveUser::toString() const {}
+    void ChangeActiveUser::act(Session& sess){
+        sess.add_actionlog(*this);
+        std::vector<std::string> command = sess.get_command();
+        if ((int)command.size()<2)
+            error("The command is too short for the action");
+        else if (!sess.isTaken(command.at(1))) {
+            error("This user name is not in the system");
+        }
+        else
+        {
+            sess.set_activeUser(command.at(1));
+            complete();
+        }
+    }
+    std::string ChangeActiveUser::toString() const {
+        string s = "ChangeUser "  + getStatusString(getStatus());
+        if (get_errorMsg()!="")
+            s+=":" + get_errorMsg();
+        return s;
+    }
 
 //class DeleteUser : public BaseAction {
-    void DeleteUser::act(Session & sess){}
-    std::string DeleteUser::toString() const {}
+    void DeleteUser::act(Session & sess){
+    sess.add_actionlog(*this);
+    std::vector<std::string> command = sess.get_command();
+    if ((int)command.size()<2)
+        error("The command is too short for the action");
+    else if (!sess.isTaken(command.at(1))) {
+        error("This user name is not in the system");
+    }
+    else
+    {
+        sess.delete_user(command.at(1));
+        complete();
+    }
+}
+
+    std::string DeleteUser::toString() const {
+        std::string s = "deleteuser "  + getStatusString(getStatus());
+        if (get_errorMsg()!="")
+            s+=":" + get_errorMsg();
+        return s;
+    }
 
 
 //class DuplicateUser : public BaseAction {
-    void DuplicateUser::act(Session & sess){} //make DuplicateUser var here in "act", to pull Name1 name2 from the start method
-    std::string DuplicateUser::toString() const{}
+    void DuplicateUser::act(Session & sess){
+    sess.add_actionlog(*this);
+    std::vector<std::string> command = sess.get_command();
+    if ((int)command.size()<3)
+        error("The command is too short for the action");
+    else if (!sess.isTaken(command.at(1))) {
+        error("This user is not in the system");}
+    else if (sess.isTaken(command.at(2))) {
+        error("This user name is taken already");
+    }
+    else
+    {
+        User* newUser = sess.get_user_by_name(command.at(1)).clone();
+
+        sess.add_user(newUser);
+        sess.delete_user(command.at(1));
+        complete();
+    }
+    } //make DuplicateUser var here in "act", to pull Name1 name2 from the start method
+    std::string DuplicateUser::toString() const{
+        string s = "DuplicateUser "  + getStatusString(getStatus());
+        if (get_errorMsg()!="")
+            s+=":" + get_errorMsg();
+        return s;
+    }
 
 
 //class PrintContentList : public BaseAction {
-    void PrintContentList::act (Session& sess){}
-    std::string PrintContentList::toString() const{}
+    void PrintContentList::act (Session& sess){
+    std::vector<Watchable*>& content =  sess.get_content();
+    for(auto v: content)
+    {
+        cout<<v->toString()<<endl;
+    }
+    }
+    std::string PrintContentList::toString() const{
+        string s = "PrintContentList "  + getStatusString(getStatus());
+        if (get_errorMsg()!="")
+            s+=":" + get_errorMsg();
+        return s;
+    }
 
 //class PrintWatchHistory : public BaseAction {
     void PrintWatchHistory::act (Session& sess){}
     std::string PrintWatchHistory::toString() const{}
-
 
 
 //class Watch : public BaseAction {

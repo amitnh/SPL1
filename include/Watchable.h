@@ -13,7 +13,7 @@ public:
     virtual ~Watchable();
     virtual std::string toString() const = 0;
     virtual Watchable* getNextWatchable(Session& s) const = 0;
-    virtual std::string get_name()=0;
+    virtual std::string get_name() const=0;
     std::vector<std::string>  get_tags() const;
     long get_id() const;
     int get_length() const;
@@ -31,8 +31,7 @@ public:
     Movie(long id, const std::string& name, int length, const std::vector<std::string>& tags);
     virtual std::string toString() const;
     virtual Watchable* getNextWatchable(Session& s) const;
-    virtual std::string get_name();
-    std::string get_name() const;
+    virtual std::string get_name() const;
 private:
     std::string name;
 };
@@ -45,7 +44,6 @@ public:
     virtual std::string toString() const;
     virtual Watchable* getNextWatchable(Session& s)  const;
     virtual std::string get_name() const;
-    std::string get_seriesName() const;
     int get_season() const;
     int get_episode() const;
 

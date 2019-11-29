@@ -12,6 +12,12 @@
 using namespace std;
     User::User(const std::string &name):name(name),history() {}
 
+    //User::~User(){}  //Destructor
+    //User::User(User &&other) {}     //Move constructor
+    //User&  User::operator=(const User &other){}   //Copy Assignment           RULE OF 5
+    // User(const User &other):name(other.name), history(other.history) {}     //Copy constructor
+    //User& User::operator=(User &&other){}   //Copy Assignment
+
     std::string User::getName() const {
         return this->name;
     }
@@ -37,7 +43,7 @@ bool User::searchinhistory(int id) {
 LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name) {}//use USER constractor}
 
     Watchable* LengthRecommenderUser::getRecommendation(Session& sess) {
-        int min=INT_MAX, id=0;
+        int min=2275488857, id=0;
         for(auto x : sess.get_contant()){
            if(!searchinhistory(x->get_id()))
                 if(abs(x->get_length()-avg_his_length)<min) {
@@ -45,15 +51,19 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name)
                     min = abs(x->get_length()-avg_his_length);
                 }
         }
-        if
+
     }
 void LengthRecommenderUser::set_avg_his_length(int new_average) {
-    favorite_length = new_average;
+    avg_his_length = new_average;
 }
 
 int LengthRecommenderUser::get_avg_his_length() {
-    return favorite_length;
+    return avg_his_length;
 }
+LengthRecommenderUser *LengthRecommenderUser::clone() {
+    return new LengthRecommenderUser(*this);
+}
+
 
 //class RerunRecommenderUser : public User {
 RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ };//use USER constractor
@@ -61,9 +71,15 @@ RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ 
     {
 
     }
+RerunRecommenderUser *RerunRecommenderUser::clone() {
+    return new RerunRecommenderUser(*this);
+}
 
 //class GenreRecommenderUser : public User {
     GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){ };//use USER constractor
     Watchable* GenreRecommenderUser::getRecommendation(Session& s){
 
     }
+GenreRecommenderUser *GenreRecommenderUser::clone() {
+    return new GenreRecommenderUser(*this);
+}
