@@ -7,6 +7,7 @@
 #include "../include/Action.h"
 #include "../include/User.h"
 #include "../include/Watchable.h"
+using namespace std;
 
 //enum ActionStatus{PENDING, COMPLETED, ERROR}
 
@@ -25,6 +26,15 @@ void BaseAction::error(const std::string &errorMsg) {
 
 ActionStatus BaseAction::getStatus() const {
     return status;
+}
+
+std::string BaseAction::getStatusString(ActionStatus status) const {
+    if (status == 0)
+        return "PENDING";
+    if (status==1)
+        return "COMPLETED";
+    if (status==2)
+        return "ERROR";
 }
 
 //class CreateUser  : public BaseAction {
@@ -56,7 +66,7 @@ ActionStatus BaseAction::getStatus() const {
     }
     std::string CreateUser::toString() const
     {
-      return "CreateUser "  + std::to_string(this->getStatus());
+      return "CreateUser "  + getStatusString(getStatus());
     }
 
 //class ChangeActiveUser : public BaseAction {
@@ -93,7 +103,7 @@ ActionStatus BaseAction::getStatus() const {
     std::vector<BaseAction*>& actionlogvec =  sess.get_actionsLog();
     for(auto v: actionlogvec)
     {
-        v->toString();
+        cout<<v->toString()<<endl;
     }
 }
     std::string PrintActionsLog::toString() const{}

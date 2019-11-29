@@ -78,55 +78,41 @@ void Session::start() {
         //for(int i=0;i<200;i++)
         //cout<< content.at(i)->toString();
         std::string input;
-    while (input!="start"){std::getline(std::cin,input);} // wait for "start" command
-    cout << "splflix is now on" << endl;
-        while (input!= "exit")
-        {
-            //std::getline(std::cin,input);
-            input="createuser tal len";
+    while(true) {
+        while (input!="start"){std::getline(std::cin,input);} // wait for "start" command
+        cout << "splflix is now on" << endl;
+        while (input != "exit") {
+            std::getline(std::cin, input);
+            //input="createuser tal len";
             command = split(input);
-            BaseAction* action;
-            if (command.at(0)=="createuser")
-            {
+            BaseAction *action;
+            if (command.at(0) == "createuser") {
                 action = new CreateUser();
                 action->act(*this);
-            }
-            else if (command.at(0)=="changeuser")
-            {
+            } else if (command.at(0) == "changeuser") {
                 action = new ChangeActiveUser();
                 action->act(*this);
-            }
-            else if (command.at(0)=="deleteuser")
-            {
+            } else if (command.at(0) == "deleteuser") {
                 action = new DeleteUser();
                 action->act(*this);
-            }
-            else if (command.at(0)=="dupuser")
-            {
+            } else if (command.at(0) == "dupuser") {
                 action = new DuplicateUser();
                 action->act(*this);
-            }
-            else if (command.at(0)=="content")
-            {
+            } else if (command.at(0) == "content") {
                 action = new PrintContentList();
                 action->act(*this);
-            }
-            else if (command.at(0)=="watchhist")
-            {
+            } else if (command.at(0) == "watchhist") {
                 action = new PrintWatchHistory();
                 action->act(*this);
-            }
-            else if (command.at(0)=="watch")
-            {
+            } else if (command.at(0) == "watch") {
                 action = new Watch();
                 action->act(*this);
-            }
-            else if (command.at(0)=="log")
-            {
+            } else if (command.at(0) == "log") {
                 action = new PrintActionsLog();
                 action->act(*this);
             }
         }
+    }
 }
 
 std::vector<std::string> Session::split(std::string str) {

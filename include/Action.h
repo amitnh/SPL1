@@ -20,7 +20,7 @@ public:
 protected:
 	void complete();
 	void error(const std::string& errorMsg);
-
+    std::string getStatusString(ActionStatus status) const;
 private:
 	std::string errorMsg;
 	ActionStatus status;
