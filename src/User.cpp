@@ -6,7 +6,7 @@
 #include "../include/Watchable.h"
 
 #include "../include/Session.h"
-
+#include<bits/stdc++.h>
 
 //#include <nlohmann/json.hpp>
 using namespace std;
@@ -51,6 +51,7 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name)
                     min = abs(x->get_length()-avg_his_length);
                 }
         }
+        return sess.get_contant().at(id);
 
     }
 void LengthRecommenderUser::set_avg_his_length(int new_average) {
@@ -70,16 +71,45 @@ RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ 
     Watchable* RerunRecommenderUser::getRecommendation(Session& s)
     {
 
+        current_id_towatch+=1;
+        return history.at((current_id_towatch-1)%history.size());
     }
 RerunRecommenderUser *RerunRecommenderUser::clone() {
     return new RerunRecommenderUser(*this);
 }
 
+int RerunRecommenderUser::get_current_id_towatch() {
+    return current_id_towatch;
+}
+
+void RerunRecommenderUser::set_current_id_towatch(int id) {
+    current_id_towatch=id;
+}
+
 //class GenreRecommenderUser : public User {
-    GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){ };//use USER constractor
+    GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name) {};//use USER constractor
     Watchable* GenreRecommenderUser::getRecommendation(Session& s){
 
+        for(auto x : favorite_tags) {
+            for (auto y : s.get_contant()) {
+                if(!searchinhistory(y->get_id())) {
+                    for (auto z : y->get_tags()) {
+                        if (z==x.first) {
+                            x.second+=1;
+                            sort(favorite_tags.begin(), favorite_tags.end(), sortbysec);
+                            return y;
+                        }
+                    }
+                }
+            }
+        }
+        cout<<"you watch too much TV bro.."<<endl;
     }
+
 GenreRecommenderUser *GenreRecommenderUser::clone() {
     return new GenreRecommenderUser(*this);
+}
+
+bool GenreRecommenderUser::sortbysec(const std::pair<std::string, int> &a, const std::pair<std::string, int> &b) {
+    return (a.second < b.second);
 }

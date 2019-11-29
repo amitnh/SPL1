@@ -41,7 +41,12 @@ public:
     virtual Watchable* getRecommendation(Session& s);
     RerunRecommenderUser* clone();
 
+    void set_current_id_towatch(int id);
+
+    int get_current_id_towatch();
+
 private:
+    int current_id_towatch;
 };
 
 class GenreRecommenderUser : public User {
@@ -49,8 +54,11 @@ public:
     GenreRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
     GenreRecommenderUser* clone();
+    static bool sortbysec(const std::pair<std::string,int> &a, const std::pair<std::string,int> &b);
+
 
 private:
+    std::vector< std::pair<std::string,int>> favorite_tags;
 };
 
 #endif

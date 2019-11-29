@@ -14,6 +14,8 @@ CMakeFiles/spl1.dir/src/Session.cpp.o: ../include/Watchable.h
 CMakeFiles/spl1.dir/src/Session.cpp.o: ../include/json.hpp
 CMakeFiles/spl1.dir/src/Session.cpp.o: ../src/Session.cpp
 
+CMakeFiles/spl1.dir/src/User.cpp.o: ../include/Action.h
+CMakeFiles/spl1.dir/src/User.cpp.o: ../include/Session.h
 CMakeFiles/spl1.dir/src/User.cpp.o: ../include/User.h
 CMakeFiles/spl1.dir/src/User.cpp.o: ../include/Watchable.h
 CMakeFiles/spl1.dir/src/User.cpp.o: ../src/User.cpp
