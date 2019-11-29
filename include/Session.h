@@ -22,7 +22,8 @@ public:
     void print_actionlog();
     void add_user(User *user);
     void add_actionlog(BaseAction &action);
-    User& get_user_by_name(std::string name);
+    bool isTaken(std::string name);
+ //   User& get_user_by_name(std::string name);
     std::vector<std::string> split(std::string str);
     std::vector<std::string> get_command(); // inputs separate by words
 private:

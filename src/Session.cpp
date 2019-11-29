@@ -82,8 +82,8 @@ void Session::start() {
     cout << "splflix is now on" << endl;
         while (input!= "exit")
         {
-            //cin>>input;
-            input="createuser tal len";
+            cin>>input;
+            //input="createuser tal len";
             command = split(input);
             BaseAction* action;
             if (command.at(0)=="createuser")
@@ -165,12 +165,19 @@ void Session::print_actionlog() {
         cout<<actionsLog.at(i)->toString() <<endl;
 }
 
+bool Session::isTaken(std::string name) {
+    if( userMap.find(name)== userMap.end())
+        return false;
+    return true;
+}
+
+/*
 User &Session::get_user_by_name(std::string name) {
         if( userMap.find(name)== userMap.end())
             return *userMap.end().operator*().second;
     return null;
 }
-
+*/
 User& getActiveUser()
     {
         return *activeUser;
