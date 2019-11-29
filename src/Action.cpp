@@ -3,6 +3,7 @@
 //
 #include <string>
 #include <iostream>
+#include <sstream>
 #include "../include/Session.h"
 #include "../include/Action.h"
 #include "../include/User.h"
@@ -136,10 +137,8 @@ std::string BaseAction::get_errorMsg() const {
     }
     else
     {
-        User* newUser = sess.get_user_by_name(command.at(1)).clone();
-
+        User* newUser = sess.get_user_by_name(command.at(1)).clone(command.at(2));
         sess.add_user(newUser);
-        sess.delete_user(command.at(1));
         complete();
     }
     } //make DuplicateUser var here in "act", to pull Name1 name2 from the start method
@@ -153,6 +152,7 @@ std::string BaseAction::get_errorMsg() const {
 
 //class PrintContentList : public BaseAction {
     void PrintContentList::act (Session& sess){
+    sess.add_actionlog(*this);
     std::vector<Watchable*>& content =  sess.get_content();
     for(auto v: content)
     {
@@ -167,13 +167,65 @@ std::string BaseAction::get_errorMsg() const {
     }
 
 //class PrintWatchHistory : public BaseAction {
-    void PrintWatchHistory::act (Session& sess){}
-    std::string PrintWatchHistory::toString() const{}
+    void PrintWatchHistory::act (Session& sess){
+    sess.add_actionlog(*this);
+    std::vector<Watchable*>& history =  sess.get_activeUser().get_history();
+    cout<<"Watch history for " + sess.get_activeUser().getName()<<endl;
+    for(auto h: history)
+    {
+        cout<<std::to_string(h->get_id())+". " + h->get_full_name()<<endl;
+    }
+    complete();
+    }
+
+    std::string PrintWatchHistory::toString() const{
+        string s = "PrintWatchHistory "  + getStatusString(getStatus());
+        if (get_errorMsg()!="")
+            s+=":" + get_errorMsg();
+        return s;
+    }
 
 
 //class Watch : public BaseAction {
-    void Watch::act(Session& sess){}
-    std::string Watch::toString() const{;}
+    void Watch::act(Session& sess){
+    sess.add_actionlog(*this);
+    std::vector<std::string> command = sess.get_command();
+
+    if ((int)command.size()<2)
+        error("The command is too short for the action");
+    else {
+        stringstream id_s(command.at(1));
+        int id = 0;
+        try { id_s >> id; }
+        catch (const std::exception &e) { error("please choose a correct Id number"); }
+        if (id >= sess.get_content().size()) {
+            error("Id out of bounds");
+        }
+        else {
+            cout << "Watching " + sess.get_content().at(id)->toString() << endl; // print watching on screen
+            sess.get_activeUser().get_history().push_back(sess.get_content().at(id)); // add to history
+            Watchable* recommend = sess.get_content().at(id)->getNextWatchable(sess);
+            cout << "We recommend watching " + recommend->toString() + ", continue watching ? [y/n]" << endl;
+            string input;
+            std::getline(std::cin, input); // waits for y/n
+            if (input == "y") {
+                BaseAction *action = new Watch();
+                command.clear();
+                command.push_back("watch");
+                command.push_back(to_string(recommend->get_id()));
+                complete();
+                action->act(sess);
+            }
+            complete();
+        }
+    }
+    }
+    std::string Watch::toString() const{
+        string s = "Watch "  + getStatusString(getStatus());
+        if (get_errorMsg()!="")
+            s+=":" + get_errorMsg();
+        return s;
+    }
 
 
 //class PrintActionsLog : public BaseAction {
@@ -184,11 +236,21 @@ std::string BaseAction::get_errorMsg() const {
         cout<<v->toString()<<endl;
     }
 }
-    std::string PrintActionsLog::toString() const{}
+    std::string PrintActionsLog::toString() const{
+        string s = "PrintActionsLog "  + getStatusString(getStatus());
+        if (get_errorMsg()!="")
+            s+=":" + get_errorMsg();
+        return s;
+    }
 
 
 //class Exit : public BaseAction {
     void Exit::act(Session& sess){}
-    std::string Exit::toString() const{}
+    std::string Exit::toString() const{
+        string s = "Exit "  + getStatusString(getStatus());
+        if (get_errorMsg()!="")
+            s+=":" + get_errorMsg();
+        return s;
+    }
 
 

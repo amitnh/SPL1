@@ -47,6 +47,10 @@ std::string Movie::get_name() const {
     return name;
 }
 
+std::string Movie::get_full_name() const {
+    return get_name();
+}
+
 Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags):Watchable(id,length,tags),season{season},episode{episode},seriesName{seriesName}{}
 
 std::string Episode::toString() const {
@@ -84,6 +88,10 @@ int Episode::get_episode() const {
 
 std::string Episode::get_name() const {
     return seriesName;
+}
+
+std::string Episode::get_full_name() const {
+    return seriesName + "S"+to_string(season) +"E" +to_string(episode);
 }
 
 

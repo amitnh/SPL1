@@ -21,8 +21,8 @@ using namespace std;
     std::string User::getName() const {
         return this->name;
     }
-    std::vector<Watchable*> User::get_history() const{
-        return this->history;
+    std::vector<Watchable*>& User::get_history() {
+        return history;
     }
 
 bool User::searchinhistory(int id) {
@@ -61,8 +61,11 @@ void LengthRecommenderUser::set_avg_his_length(int new_average) {
 int LengthRecommenderUser::get_avg_his_length() {
     return avg_his_length;
 }
-LengthRecommenderUser *LengthRecommenderUser::clone() {
-    return new LengthRecommenderUser(*this);
+User* LengthRecommenderUser::clone(const std::string newName) {
+    LengthRecommenderUser *user = new LengthRecommenderUser(newName);
+    user->history=this->history;
+    user->avg_his_length=this->avg_his_length;
+    return user;
 }
 
 
@@ -74,8 +77,11 @@ RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ 
         current_id_towatch+=1;
         return history.at((current_id_towatch-1)%history.size());
     }
-RerunRecommenderUser *RerunRecommenderUser::clone() {
-    return new RerunRecommenderUser(*this);
+User *RerunRecommenderUser::clone(std::string newName) {
+    RerunRecommenderUser *user = new RerunRecommenderUser(newName);
+    user->history=this->history;
+    // add more staff to copy uniq to return
+    return user;
 }
 
 int RerunRecommenderUser::get_current_id_towatch() {
@@ -87,7 +93,7 @@ void RerunRecommenderUser::set_current_id_towatch(int id) {
 }
 
 //class GenreRecommenderUser : public User {
-    GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name) {};//use USER constractor
+    GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){ };//use USER constractor
     Watchable* GenreRecommenderUser::getRecommendation(Session& s){
 
         for(auto x : favorite_tags) {
@@ -105,9 +111,11 @@ void RerunRecommenderUser::set_current_id_towatch(int id) {
         }
         cout<<"you watch too much TV bro.."<<endl;
     }
-
-GenreRecommenderUser *GenreRecommenderUser::clone() {
-    return new GenreRecommenderUser(*this);
+User *GenreRecommenderUser::clone(std::string newName) {
+    GenreRecommenderUser *user = new GenreRecommenderUser(newName);
+    user->history=this->history;
+    // add more staff to copy uniq to genre
+    return user;
 }
 
 bool GenreRecommenderUser::sortbysec(const std::pair<std::string, int> &a, const std::pair<std::string, int> &b) {
