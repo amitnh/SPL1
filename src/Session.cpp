@@ -152,12 +152,8 @@ void Session::print_actionlog() {
 }
 
 bool Session::isTaken(std::string name) {
-    if( userMap.find(name)== userMap.end()) {
-        cout << "name available" << endl;
-
+    if( userMap.find(name)== userMap.end())
         return false;
-    }
-    cout << "name already taken"<< endl;
     return true;
 }
 
@@ -165,13 +161,13 @@ std::vector<BaseAction *>& Session::get_actionsLog() {
     return actionsLog;
 }
 
-/*
+
 User &Session::get_user_by_name(std::string name) {
+        if(!isTaken(name))
         if( userMap.find(name)== userMap.end())
             return *userMap.end().operator*().second;
-    return null;
 }
-*/
+
 User& getActiveUser()
     {
         return *activeUser;

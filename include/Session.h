@@ -25,7 +25,7 @@ public:
     void add_actionlog(BaseAction &action);
     bool isTaken(std::string name);
 
- //   User& get_user_by_name(std::string name);
+    User& get_user_by_name(std::string name);
     std::vector<std::string> split(std::string str);
     std::vector<std::string> get_command(); // inputs separate by words
 private:
@@ -34,5 +34,6 @@ private:
     std::vector<BaseAction*> actionsLog;
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
+
 };
 #endif
