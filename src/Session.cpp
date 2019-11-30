@@ -19,7 +19,7 @@ std::vector<BaseAction *> actionsLog;
 std::unordered_map<std::string, User *> userMap;
 User *activeUser;
 
-Session::Session(const std::string &configFilePath) : content(), actionsLog(), userMap() {         //constructor
+Session::Session(const std::string &configFilePath):command{},content{},actionsLog{},userMap{},activeUser{} {         //constructor
     //insert from json file to watchable vector "content"
     User *defaultUser = new LengthRecommenderUser("default");
     activeUser = defaultUser;
@@ -52,7 +52,7 @@ Session::Session(const std::string &configFilePath) : content(), actionsLog(), u
     jj = j["tv_series"];
 
     for (int series = 0; series < (int)(jj.size()); ++series) {
-        for (int k = 0; k < jj[series]["tags"].size(); ++k) {
+        for (int k = 0; k < (int)(jj[series]["tags"].size()); ++k) {
             tags.push_back(jj[series]["tags"][k]);
         }
         for (int season = 0; season < (int)(jj[series]["seasons"].size()); ++season) {
@@ -86,7 +86,7 @@ Session::~Session() {    //Destructor}
 
 }
 
-Session::Session(const Session &other) {     //Copy constructor
+Session::Session(const Session &other):command{},content{},actionsLog{},userMap{},activeUser{} {     //Copy constructor
     for (auto log : other.actionsLog) {
         actionsLog.push_back(log->clone());
     }
@@ -141,7 +141,7 @@ Session &Session::operator=(const Session &other) {  //Copy Assignment          
     return *this;
 }
 
-Session::Session(Session &&other) {     //Move constructor
+Session::Session(Session &&other):command{},content{},actionsLog{},userMap{},activeUser{}  {     //Move constructor
     content = other.content;
     actionsLog = other.actionsLog;
     userMap = other.userMap;
@@ -176,8 +176,8 @@ void Session::start() {
     //for(int i=0;i<200;i++)
     //cout<< content.at(i)->toString();
     std::string input;
+    cout << "splflix is now on" << endl;
     while (input != "exit") {
-        cout << "splflix is now on" << endl;
         std::getline(std::cin, input);
         //input="createuser tal len";
         command = split(input);
@@ -213,6 +213,7 @@ void Session::start() {
         } else if (command.at(0) == "log") {
             action = new PrintActionsLog();
             action->act(*this);
+            delete action;
         }
     }
 }
@@ -266,6 +267,7 @@ User *Session::get_user_by_name(std::string name) {
         std::unordered_map<std::string, User *>::iterator x = userMap.find(name);
         return x->second;
     }
+    return nullptr;
 }
 
 

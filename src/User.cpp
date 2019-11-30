@@ -10,7 +10,7 @@
 
 //#include <nlohmann/json.hpp>
 using namespace std;
-    User::User(const std::string &name):name(name),history() {}
+    User::User(const std::string &name):history{},name{name}{}
 
     std::string User::getName() const {
         return this->name;
@@ -29,7 +29,7 @@ using namespace std;
 
 
 //class LengthRecommenderUser : public User {
-LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name) {avg_his_length=0;}//use USER constractor}
+LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name),avg_his_length{} {}//use USER constractor}
 
     Watchable* LengthRecommenderUser::getRecommendation(Session& sess) {
         set_avg_his_length();
@@ -63,7 +63,7 @@ User* LengthRecommenderUser::clone(const std::string newName) {
 
 
 //class RerunRecommenderUser : public User {
-RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){towatch=0;};//use USER constractor
+RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User{name},towatch{0}{}//use USER constractor
     Watchable* RerunRecommenderUser::getRecommendation(Session& s) {
         if(((int)(history.size()) == 1)|((int)(history.size()) == 2)|(towatch==((int)history.size()-1)))
             towatch=-1;

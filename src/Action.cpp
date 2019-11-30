@@ -4,16 +4,19 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include "../include/Session.h"
 #include "../include/Action.h"
+#include "../include/Session.h"
 #include "../include/User.h"
 #include "../include/Watchable.h"
+
+
+
 using namespace std;
 
 //enum ActionStatus{PENDING, COMPLETED, ERROR}
 
 //class BaseAction::{
-    BaseAction::BaseAction():status{PENDING},errorMsg{""}{
+    BaseAction::BaseAction():errorMsg{},status{PENDING}{
 }
 
 void BaseAction::complete() {
@@ -35,9 +38,8 @@ std::string BaseAction::getStatusString(ActionStatus status) const {
         return "PENDING";
     if (status==1)
         return "COMPLETED";
-    if (status==2)
-        return "ERROR";
-}
+    return "ERROR";
+    }
 
 std::string BaseAction::get_errorMsg() const {
     return errorMsg;
@@ -308,11 +310,11 @@ BaseAction *Watch::clone() {
 
 //class PrintActionsLog : public BaseAction {
     void PrintActionsLog::act(Session& sess){
-    std::vector<BaseAction*>& actionlogvec =  sess.get_actionsLog();
-    for(auto v: actionlogvec)
+    for(auto v: sess.get_actionsLog())
     {
         cout<<v->toString()<<endl;
     }
+
 }
     std::string PrintActionsLog::toString() const{
         string s = "PrintActionsLog "  + getStatusString(getStatus());

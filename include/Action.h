@@ -4,8 +4,9 @@
 #include <string>
 #include <iostream>
 
-class Session;
 
+
+class Session;
 enum ActionStatus{
 	PENDING, COMPLETED, ERROR
 };
@@ -21,6 +22,7 @@ public:
 	std::string get_errorMsg() const;
 	void set_status(ActionStatus as);
 	void set_errorMsg(std::string msg);
+    virtual ~BaseAction()= default;
 protected:
 	void complete();
 	void error(const std::string& errorMsg);

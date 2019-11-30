@@ -56,7 +56,7 @@ Watchable *Movie::clone() {
     return new Movie(this->get_id(),this->get_name(),this->get_length(),this->get_tags());
 }
 
-Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags):Watchable(id,length,tags),season{season},episode{episode},seriesName{seriesName}{}
+Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags):Watchable(id,length,tags),seriesName{seriesName},season{season},episode{episode},nextEpisodeId{}{}
 
 std::string Episode::toString() const {
     return seriesName + " S"+to_string(season) +"E" +to_string(episode);

@@ -5,6 +5,7 @@
 #include <string>
 #include <unordered_set>
 #include <unordered_map>
+
 class Watchable;
 class Session;
 
@@ -16,11 +17,12 @@ public:
     std::string getName() const;
     std::vector<Watchable*>& get_history();
     bool searchinhistory(int id);
+    virtual ~User()=default;
 
 protected:
     std::vector<Watchable*> history;
 private:
-    const std::string name;
+    std::string name;
 
 };
 

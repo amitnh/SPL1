@@ -6,8 +6,8 @@
 #include <string>
 #include "../include/Action.h"
 
-class User;
 class Watchable;
+class User;
 
 class Session{
 public:
