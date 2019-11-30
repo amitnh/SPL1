@@ -27,7 +27,6 @@ public:
     void add_user(User *user);
     void add_actionlog(BaseAction &action);
     bool isTaken(std::string name);
-    std::vector<Watchable*> &get_contant();
 
     User* get_user_by_name(std::string name);
     std::vector<std::string> split(std::string str);

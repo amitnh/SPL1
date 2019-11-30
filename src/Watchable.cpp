@@ -64,10 +64,10 @@ std::string Episode::toString() const {
 
 Watchable *Episode::getNextWatchable(Session &s) const {
     int cur_id = get_id();
-    if (cur_id < (int)(s.get_contant().size()))
-        if (s.get_contant().at(cur_id + 1)->get_name() == get_name())
+    if (cur_id < (int)(s.get_content().size())-1)
+        if (s.get_content().at(cur_id + 1)->get_name() == get_name())
             if (!s.get_activeUser().searchinhistory(cur_id + 1))
-                return s.get_contant().at(cur_id + 1);
+                return s.get_content().at(cur_id + 1);
     return s.get_activeUser().getRecommendation(s);
 }
 

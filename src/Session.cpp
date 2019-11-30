@@ -271,7 +271,7 @@ User *Session::get_user_by_name(std::string name) {
 }
 
 
-std::vector<Watchable *> &Session::get_contant() {
+std::vector<Watchable *> &Session::get_content() {
     return this->content;
 }
 
@@ -282,10 +282,6 @@ void Session::set_activeUser(std::string name) {
 void Session::delete_user(std::string name) {
     delete get_user_by_name(name);
     userMap.erase(name);
-}
-
-std::vector<Watchable *> &Session::get_content() {
-    return content;
 }
 
 void Session::set_command(std::vector<std::string> cmd) {

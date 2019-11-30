@@ -34,14 +34,14 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name)
     Watchable* LengthRecommenderUser::getRecommendation(Session& sess) {
         set_avg_his_length();
         int min=99999, id=0;
-        for(auto x : sess.get_contant()){
+        for(auto x : sess.get_content()){
            if(!searchinhistory((int)x->get_id()))
                 if(abs(x->get_length()-avg_his_length)<min) {
                     id = (int)x->get_id();
                     min = abs(x->get_length()-avg_his_length);
                 }
         }
-        return sess.get_contant().at(id);
+        return sess.get_content().at(id);
 
     }
 void LengthRecommenderUser::set_avg_his_length() {
@@ -105,7 +105,7 @@ User *RerunRecommenderUser::clone(std::string newName) {
 
 
         for(auto x : favorite_tags) {          //find best match for the user from the most popular tag to the least one
-            for (auto y : s.get_contant()) {
+            for (auto y : s.get_content()) {
                 if(!searchinhistory((int)(y->get_id()))) {
                     for (auto z : y->get_tags()) {
                         if (z==x.first) {
