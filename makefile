@@ -8,22 +8,26 @@ LFLAGS  = -L/usr/lib
 all: splflix
 
 # Tool invocations
-# Executable "splflix" depends on the files splflix.o and main.o.
-splflix: bin/Session.o bin/main.o
+# Executable "splflix" depends on the files Main.o - Action.o - Session.o - Watchable.o - User.o
+splflix: bin/Main.o bin/Action.o bin/Session.o bin/Watchable.o bin/User.o
 	@echo 'Building target: splflix'
 	@echo 'Invoking: C++ Linker'
-	$(CC) -o bin/splflix bin/Session.o bin/main.o $(LFLAGS)
+	$(CC) -o bin/splflix bin/Main.o bin/Action.o bin/Session.o bin/Watchable.o bin/User.o $(LFLAGS)
 	@echo 'Finished building target: splflix'
 	@echo ' '
 
 # Depends on the source and header files
+bin/Main.o: src/Main.cpp
+	$(CC) $(CFLAGS) -c -Linclude -o bin/Main.o src/Main.cpp
+bin/Action.o: src/Action.cpp
+	$(CC) $(CFLAGS) -c -Linclude -o bin/Action.o src/Action.cpp
 bin/Session.o: src/Session.cpp
-	$(CC) $(CFLAGS) -c -Iinclude -o bin/Session.o src/Session.cpp
-
-# Depends on the source and header files
-bin/main.o: src/main.cpp
-	$(CC) $(CFLAGS) -c -Iinclude -o bin/main.o src/main.cpp
+	$(CC) $(CFLAGS) -c -Linclude -o bin/Session.o src/Session.cpp
+bin/Watchable.o: src/Watchable.cpp
+	$(CC) $(CFLAGS) -c -Linclude -o bin/Watchable.o src/Watchable.cpp
+bin/User.o: src/User.cpp
+	$(CC) $(CFLAGS) -c -Linclude -o bin/User.o src/User.cpp
 
 #Clean the build directory
-clean:
+clean: 
 	rm -f bin/*

@@ -5,11 +5,11 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories({include})
 
 add_executable(spl1
-        src/main.cpp
+        src/Main.cpp
         src/Action.cpp
         src/Session.cpp
         src/User.cpp
-        src/Wachable.cpp
+        src/Watchable.cpp
         include/Action.h
         include/json.hpp
         include/Session.h
