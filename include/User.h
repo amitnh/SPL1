@@ -45,7 +45,7 @@ public:
 
 
 private:
-    int towatch=0;
+    int towatch;
 };
 
 class GenreRecommenderUser : public User {

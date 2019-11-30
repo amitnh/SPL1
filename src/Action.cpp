@@ -193,9 +193,17 @@ BaseAction *DuplicateUser::clone() {
     void PrintContentList::act (Session& sess){
     sess.add_actionlog(*this);
     std::vector<Watchable*>& content =  sess.get_content();
+    int id=1;
     for(auto v: content)
     {
-        cout<<v->toString()<<endl;
+        std::string s;
+        s = "\n" + to_string(id++) +". "+ v->toString()+ " " + to_string(v->get_length()) +" minutes" +" [";
+
+        for ( auto i : v->get_tags() ) // runs on all the vector in tags
+            s +=  i + ", ";
+        s = s.substr(0, s.size()-2); // remove the last ", "
+        s+="]";
+        cout<<s;
     }
     }
     std::string PrintContentList::toString() const{
@@ -222,8 +230,7 @@ BaseAction *PrintContentList::clone() {
     else {
         int index = 1;
         for (auto h: history) {
-            cout << std::to_string(index) + ". " + h->get_full_name() << endl;
-            index++;
+            cout << to_string(index++) +". " + h->toString()<< endl;
         }
     }
     complete();
