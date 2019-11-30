@@ -16,6 +16,7 @@ public:
     std::string getName() const;
     std::vector<Watchable*>& get_history();
     bool searchinhistory(int id);
+
 protected:
     std::vector<Watchable*> history;
 private:
@@ -42,12 +43,9 @@ public:
     virtual Watchable* getRecommendation(Session& s);
     User* clone(std::string newName);
 
-    void set_current_id_towatch(int id);
-
-    int get_current_id_towatch();
 
 private:
-    int current_id_towatch;
+    int towatch=0;
 };
 
 class GenreRecommenderUser : public User {

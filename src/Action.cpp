@@ -213,18 +213,23 @@ std::string BaseAction::get_errorMsg() const {
             cout << "Watching " + sess.get_content().at(id)->toString() << endl; // print watching on screen
             sess.get_activeUser().get_history().push_back(sess.get_content().at(id)); // add to history
             Watchable* recommend = sess.get_content().at(id)->getNextWatchable(sess);
-            cout << "We recommend watching " + recommend->toString() + ", continue watching ? [y/n]" << endl;
-            string input;
-            std::getline(std::cin, input); // waits for y/n
-            if (input == "y") {
-                BaseAction *action = new Watch();
-                command.at(1)=to_string(recommend->get_id());
-                sess.set_command(command);
-
-                complete();
-                action->act(sess);
+            if(recommend== nullptr){
+                error(("already watched everything on splflix"));
             }
-            complete();
+            else {
+                cout << "We recommend watching " + recommend->toString() + ", continue watching ? [y/n]" << endl;
+                string input;
+                std::getline(std::cin, input); // waits for y/n
+                if (input == "y") {
+                    BaseAction *action = new Watch();
+                    command.at(1) = to_string(recommend->get_id());
+                    sess.set_command(command);
+
+                    complete();
+                    action->act(sess);
+                }
+                complete();
+            }
         }
     }
     }

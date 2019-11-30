@@ -12,32 +12,20 @@
 using namespace std;
     User::User(const std::string &name):name(name),history() {}
 
-    //User::~User(){}  //Destructor
-    //User::User(User &&other) {}     //Move constructor
-    //User&  User::operator=(const User &other){}   //Copy Assignment           RULE OF 5
-    // User(const User &other):name(other.name), history(other.history) {}     //Copy constructor
-    //User& User::operator=(User &&other){}   //Copy Assignment
-
     std::string User::getName() const {
         return this->name;
     }
     std::vector<Watchable*>& User::get_history() {
         return history;
     }
+    bool User::searchinhistory(int id) {
+        for (auto watch : history) {
+            if (watch->get_id() == id)
+                return true;
+        }
+            return false;
 
-bool User::searchinhistory(int id) {
-    for (auto watch : history) {
-        if (watch->get_id() == id)
-            return true;
     }
-        return false;
-
-}
-
-// std::vector<Watchable*> history;
-        //const std::string name;
-
-
 
 
 //class LengthRecommenderUser : public User {
@@ -75,11 +63,12 @@ User* LengthRecommenderUser::clone(const std::string newName) {
 
 
 //class RerunRecommenderUser : public User {
-RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ };//use USER constractor
-    Watchable* RerunRecommenderUser::getRecommendation(Session& s)
-    {
-        set_current_id_towatch(current_id_towatch+1);
-        return history.at((get_current_id_towatch()-1)%history.size());
+RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){towatch=0;};//use USER constractor
+    Watchable* RerunRecommenderUser::getRecommendation(Session& s) {
+        if((history.size() == 1)|(history.size() == 2)|(towatch==history.size()-1))
+            towatch=-1;
+        towatch++;
+        return history.at(towatch);
     }
 User *RerunRecommenderUser::clone(std::string newName) {
     RerunRecommenderUser *user = new RerunRecommenderUser(newName);
@@ -88,32 +77,47 @@ User *RerunRecommenderUser::clone(std::string newName) {
     return user;
 }
 
-int RerunRecommenderUser::get_current_id_towatch() {
-    return current_id_towatch;
-}
 
-void RerunRecommenderUser::set_current_id_towatch(int id) {
-    current_id_towatch=id;
-}
 
 //class GenreRecommenderUser : public User {
-    GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){ };//use USER constractor
+    GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){};//use USER constractor
     Watchable* GenreRecommenderUser::getRecommendation(Session& s){
+        favorite_tags.clear();
+        bool found = false;
+        for(auto x: history){
+            for( auto tag : x->get_tags()){
+                for(auto &favtag : favorite_tags){
+                    if(tag==favtag.first) {
+                        favtag.second++;
+                        found = true;
+                    }                                                   ///arrange the tags vector ant sort it
+                }
+                if (!found) {
+                    pair<std::string,int> newtag(tag,1);
+                    favorite_tags.push_back(newtag);
+                    found = false;
+                }found = false;
+            }
 
-        for(auto x : favorite_tags) {
+        }
+        sort(favorite_tags.begin(), favorite_tags.end(), sortbysec);
+
+
+        for(auto x : favorite_tags) {          //find best match for the user from the most popular tag to the least one
             for (auto y : s.get_contant()) {
                 if(!searchinhistory(y->get_id())) {
                     for (auto z : y->get_tags()) {
                         if (z==x.first) {
                             x.second+=1;
-                            sort(favorite_tags.begin(), favorite_tags.end(), sortbysec);
-                            return y;
+                            return y;       //bingo
                         }
                     }
                 }
             }
         }
-        cout<<"you watch too much TV bro.."<<endl;
+        //if we are here, the user already saw it all.
+        cout<<"no more stuff to see for you"<< endl;
+        return nullptr;
     }
 User *GenreRecommenderUser::clone(std::string newName) {
     GenreRecommenderUser *user = new GenreRecommenderUser(newName);

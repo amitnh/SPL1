@@ -21,7 +21,7 @@ User* activeUser;
 
     Session::Session(const std::string &configFilePath):content(), actionsLog(), userMap(){         //constructor
         //insert from json file to watchable vector "content"
-        User* defaultUser = new LengthRecommenderUser("default");
+        User* defaultUser = new RerunRecommenderUser("default");
         activeUser = defaultUser;
         //******add to userMap
         pair<std::string,User*> upair(defaultUser->getName(),defaultUser);
