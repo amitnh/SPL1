@@ -45,7 +45,7 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name)
 
     Watchable* LengthRecommenderUser::getRecommendation(Session& sess) {
         set_avg_his_length();
-        int min=1829250992, id=0;
+        int min=99999, id=0;
         for(auto x : sess.get_contant()){
            if(!searchinhistory(x->get_id()))
                 if(abs(x->get_length()-avg_his_length)<min) {
@@ -78,9 +78,8 @@ User* LengthRecommenderUser::clone(const std::string newName) {
 RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){ };//use USER constractor
     Watchable* RerunRecommenderUser::getRecommendation(Session& s)
     {
-
-        current_id_towatch+=1;
-        return history.at((current_id_towatch-1)%history.size());
+        set_current_id_towatch(current_id_towatch+1);
+        return history.at((get_current_id_towatch()-1)%history.size());
     }
 User *RerunRecommenderUser::clone(std::string newName) {
     RerunRecommenderUser *user = new RerunRecommenderUser(newName);

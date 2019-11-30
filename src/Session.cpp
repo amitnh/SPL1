@@ -10,6 +10,8 @@
 #include <iostream>
 #include <fstream>
 #include <ostream>
+#include <sstream>
+
 using json=nlohmann::json;
 using namespace std;
 std::vector<Watchable*> content;
@@ -25,6 +27,8 @@ User* activeUser;
         pair<std::string,User*> upair(defaultUser->getName(),defaultUser);
         userMap.insert(upair);
         //Read Config File
+
+
         //MOVIES
         std::ifstream i(configFilePath);
         //std::ifstream i("./include/config1.json");
@@ -105,6 +109,11 @@ void Session::start() {
                 action = new PrintWatchHistory();
                 action->act(*this);
             } else if (command.at(0) == "watch") {
+                stringstream id_s(command.at(1));
+                int id = 0;
+                try { id_s >> id;
+                command.at(1)=to_string(--id);}
+                catch (const std::exception &e) {}
                 action = new Watch();
                 action->act(*this);
             } else if (command.at(0) == "log") {
