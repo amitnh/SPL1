@@ -47,7 +47,7 @@ std::string Movie::get_full_name() const {
     s = to_string(this->get_id()+1) + ". " + this->get_name() + " " + to_string(this->get_length()) + " minutes [";
     for ( auto i : get_tags() ) // runs on all the vector in tags
         s +=  i + ", ";
-    s = s.substr(0, s.size()-2); // remove the last ", "
+    s = s.substr(0, (int)(s.size())-2); // remove the last ", "
     s+="]";
     return s;
 }
@@ -64,7 +64,7 @@ std::string Episode::toString() const {
 
 Watchable *Episode::getNextWatchable(Session &s) const {
     int cur_id = get_id();
-    if (cur_id < s.get_contant().size())
+    if (cur_id < (int)(s.get_contant().size()))
         if (s.get_contant().at(cur_id + 1)->get_name() == get_name())
             if (!s.get_activeUser().searchinhistory(cur_id + 1))
                 return s.get_contant().at(cur_id + 1);
@@ -94,7 +94,7 @@ std::string Episode::get_full_name() const {
 
     for ( auto i : get_tags() ) // runs on all the vector in tags
         s +=  i + ", ";
-    s = s.substr(0, s.size()-2); // remove the last ", "
+    s = s.substr(0, (int)(s.size())-2); // remove the last ", "
     s+="]";
     return s;
 }

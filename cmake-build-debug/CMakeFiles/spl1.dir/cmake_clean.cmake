@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/spl1.dir/src/Action.cpp.o"
+  "CMakeFiles/spl1.dir/src/Main.cpp.o"
   "CMakeFiles/spl1.dir/src/Session.cpp.o"
   "CMakeFiles/spl1.dir/src/User.cpp.o"
-  "CMakeFiles/spl1.dir/src/Wachable.cpp.o"
-  "CMakeFiles/spl1.dir/src/main.cpp.o"
+  "CMakeFiles/spl1.dir/src/Watchable.cpp.o"
   "spl1"
   "spl1.pdb"
 )

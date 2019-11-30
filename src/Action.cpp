@@ -201,7 +201,7 @@ BaseAction *DuplicateUser::clone() {
 
         for ( auto i : v->get_tags() ) // runs on all the vector in tags
             s +=  i + ", ";
-        s = s.substr(0, s.size()-2); // remove the last ", "
+        s = s.substr(0, (int)(s.size())-2); // remove the last ", "
         s+="]";
         cout<<s;
     }
@@ -264,7 +264,7 @@ BaseAction *PrintWatchHistory::clone() {
         int id = 0;
         try { id_s >> id; }
         catch (const std::exception &e) { error("please choose a correct Id number"); }
-        if (id >= sess.get_content().size()) {
+        if (id >= (int)(sess.get_content().size())) {
             error("Id out of bounds");
         }
         else {

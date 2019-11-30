@@ -35,9 +35,9 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name)
         set_avg_his_length();
         int min=99999, id=0;
         for(auto x : sess.get_contant()){
-           if(!searchinhistory(x->get_id()))
+           if(!searchinhistory((int)x->get_id()))
                 if(abs(x->get_length()-avg_his_length)<min) {
-                    id = x->get_id();
+                    id = (int)x->get_id();
                     min = abs(x->get_length()-avg_his_length);
                 }
         }
@@ -48,7 +48,7 @@ void LengthRecommenderUser::set_avg_his_length() {
         avg_his_length=0;
         for(auto x : history)
             avg_his_length+=x->get_length();
-        avg_his_length = avg_his_length/history.size();
+        avg_his_length = (int)(avg_his_length/history.size());
 }
 
 int LengthRecommenderUser::get_avg_his_length() {
@@ -65,7 +65,7 @@ User* LengthRecommenderUser::clone(const std::string newName) {
 //class RerunRecommenderUser : public User {
 RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User(name){towatch=0;};//use USER constractor
     Watchable* RerunRecommenderUser::getRecommendation(Session& s) {
-        if((history.size() == 1)|(history.size() == 2)|(towatch==history.size()-1))
+        if(((int)(history.size()) == 1)|((int)(history.size()) == 2)|(towatch==((int)history.size()-1)))
             towatch=-1;
         towatch++;
         return history.at(towatch);
@@ -96,7 +96,8 @@ User *RerunRecommenderUser::clone(std::string newName) {
                     pair<std::string,int> newtag(tag,1);
                     favorite_tags.push_back(newtag);
                     found = false;
-                }found = false;
+                }
+                found = false;
             }
 
         }
@@ -105,7 +106,7 @@ User *RerunRecommenderUser::clone(std::string newName) {
 
         for(auto x : favorite_tags) {          //find best match for the user from the most popular tag to the least one
             for (auto y : s.get_contant()) {
-                if(!searchinhistory(y->get_id())) {
+                if(!searchinhistory((int)(y->get_id()))) {
                     for (auto z : y->get_tags()) {
                         if (z==x.first) {
                             x.second+=1;

@@ -37,8 +37,8 @@ Session::Session(const std::string &configFilePath) : content(), actionsLog(), u
     json jj = j["movies"];
     std::vector<std::string> tags;
     int index = 0;
-    for (int i = 0; i < jj.size(); ++i) {
-        for (int k = 0; k < jj[i]["tags"].size(); ++k) {
+    for (int i = 0; i < (int)(jj.size()); ++i) {
+        for (int k = 0; k < (int)(jj[i]["tags"].size()); ++k) {
             tags.push_back(jj[i]["tags"][k]);
         }
         Watchable *mov = new Movie(index, jj[i]["name"], jj[i]["length"], tags);
@@ -51,12 +51,12 @@ Session::Session(const std::string &configFilePath) : content(), actionsLog(), u
 
     jj = j["tv_series"];
 
-    for (int series = 0; series < jj.size(); ++series) {
+    for (int series = 0; series < (int)(jj.size()); ++series) {
         for (int k = 0; k < jj[series]["tags"].size(); ++k) {
             tags.push_back(jj[series]["tags"][k]);
         }
-        for (int season = 0; season < jj[series]["seasons"].size(); ++season) {
-            for (int episode = 0; episode < jj[series]["seasons"][season]; ++episode) {
+        for (int season = 0; season < (int)(jj[series]["seasons"].size()); ++season) {
+            for (int episode = 0; episode < (int)(jj[series]["seasons"][season]); ++episode) {
                 Watchable *epi = new Episode(index, jj[series]["name"], jj[series]["episode_length"], season + 1,
                                              episode + 1, tags);
                 index++;
@@ -246,7 +246,7 @@ void Session::add_actionlog(BaseAction &action) {
 }
 
 void Session::print_actionlog() {
-    for (int i = 0; i < actionsLog.size(); ++i)
+    for (int i = 0; i < (int)(actionsLog.size()); ++i)
         cout << actionsLog.at(i)->toString() << endl;
 }
 

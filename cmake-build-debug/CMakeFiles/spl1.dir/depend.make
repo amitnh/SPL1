@@ -7,6 +7,13 @@ CMakeFiles/spl1.dir/src/Action.cpp.o: ../include/User.h
 CMakeFiles/spl1.dir/src/Action.cpp.o: ../include/Watchable.h
 CMakeFiles/spl1.dir/src/Action.cpp.o: ../src/Action.cpp
 
+CMakeFiles/spl1.dir/src/Main.cpp.o: ../include/Action.h
+CMakeFiles/spl1.dir/src/Main.cpp.o: ../include/Session.h
+CMakeFiles/spl1.dir/src/Main.cpp.o: ../include/User.h
+CMakeFiles/spl1.dir/src/Main.cpp.o: ../include/Watchable.h
+CMakeFiles/spl1.dir/src/Main.cpp.o: ../include/json.hpp
+CMakeFiles/spl1.dir/src/Main.cpp.o: ../src/Main.cpp
+
 CMakeFiles/spl1.dir/src/Session.cpp.o: ../include/Action.h
 CMakeFiles/spl1.dir/src/Session.cpp.o: ../include/Session.h
 CMakeFiles/spl1.dir/src/Session.cpp.o: ../include/User.h
@@ -20,16 +27,9 @@ CMakeFiles/spl1.dir/src/User.cpp.o: ../include/User.h
 CMakeFiles/spl1.dir/src/User.cpp.o: ../include/Watchable.h
 CMakeFiles/spl1.dir/src/User.cpp.o: ../src/User.cpp
 
-CMakeFiles/spl1.dir/src/Wachable.cpp.o: ../include/Action.h
-CMakeFiles/spl1.dir/src/Wachable.cpp.o: ../include/Session.h
-CMakeFiles/spl1.dir/src/Wachable.cpp.o: ../include/User.h
-CMakeFiles/spl1.dir/src/Wachable.cpp.o: ../include/Watchable.h
-CMakeFiles/spl1.dir/src/Wachable.cpp.o: ../src/Wachable.cpp
-
-CMakeFiles/spl1.dir/src/main.cpp.o: ../include/Action.h
-CMakeFiles/spl1.dir/src/main.cpp.o: ../include/Session.h
-CMakeFiles/spl1.dir/src/main.cpp.o: ../include/User.h
-CMakeFiles/spl1.dir/src/main.cpp.o: ../include/Watchable.h
-CMakeFiles/spl1.dir/src/main.cpp.o: ../include/json.hpp
-CMakeFiles/spl1.dir/src/main.cpp.o: ../src/main.cpp
+CMakeFiles/spl1.dir/src/Watchable.cpp.o: ../include/Action.h
+CMakeFiles/spl1.dir/src/Watchable.cpp.o: ../include/Session.h
+CMakeFiles/spl1.dir/src/Watchable.cpp.o: ../include/User.h
+CMakeFiles/spl1.dir/src/Watchable.cpp.o: ../include/Watchable.h
+CMakeFiles/spl1.dir/src/Watchable.cpp.o: ../src/Watchable.cpp
 
