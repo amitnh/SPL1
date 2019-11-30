@@ -82,7 +82,7 @@ User *RerunRecommenderUser::clone(std::string newName) {
 //class GenreRecommenderUser : public User {(history.size() == 1)
     GenreRecommenderUser::GenreRecommenderUser(const std::string& name):User(name){};//use USER constractor
     Watchable* GenreRecommenderUser::getRecommendation(Session& s){
-        favorite_tags.clear();
+        std::vector< std::pair<std::string,int>> favorite_tags;
         bool found = false;
         for(auto x: history){
             for( auto tag : x->get_tags()){

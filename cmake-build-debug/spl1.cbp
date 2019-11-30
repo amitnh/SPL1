@@ -104,16 +104,16 @@
 		<Unit filename="/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Action.cpp">
 			<Option target="spl1"/>
 		</Unit>
+		<Unit filename="/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Main.cpp">
+			<Option target="spl1"/>
+		</Unit>
 		<Unit filename="/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Session.cpp">
 			<Option target="spl1"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/User.cpp">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Wachable.cpp">
-			<Option target="spl1"/>
-		</Unit>
-		<Unit filename="/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/main.cpp">
+		<Unit filename="/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Watchable.cpp">
 			<Option target="spl1"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/kapelnik/Desktop/SPL1/CMakeLists.txt">

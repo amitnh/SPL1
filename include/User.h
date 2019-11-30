@@ -56,7 +56,6 @@ public:
     static bool sortbysec(const std::pair<std::string,int> &a, const std::pair<std::string,int> &b);
 
 private:
-    std::vector< std::pair<std::string,int>> favorite_tags;
 };
 
 #endif

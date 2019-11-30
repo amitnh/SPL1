@@ -150,6 +150,33 @@ src/Action.cpp.s:
 	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Action.cpp.s
 .PHONY : src/Action.cpp.s
 
+src/Main.o: src/Main.cpp.o
+
+.PHONY : src/Main.o
+
+# target to build an object file
+src/Main.cpp.o:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Main.cpp.o
+.PHONY : src/Main.cpp.o
+
+src/Main.i: src/Main.cpp.i
+
+.PHONY : src/Main.i
+
+# target to preprocess a source file
+src/Main.cpp.i:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Main.cpp.i
+.PHONY : src/Main.cpp.i
+
+src/Main.s: src/Main.cpp.s
+
+.PHONY : src/Main.s
+
+# target to generate assembly for a file
+src/Main.cpp.s:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Main.cpp.s
+.PHONY : src/Main.cpp.s
+
 src/Session.o: src/Session.cpp.o
 
 .PHONY : src/Session.o
@@ -204,59 +231,32 @@ src/User.cpp.s:
 	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/User.cpp.s
 .PHONY : src/User.cpp.s
 
-src/Wachable.o: src/Wachable.cpp.o
+src/Watchable.o: src/Watchable.cpp.o
 
-.PHONY : src/Wachable.o
-
-# target to build an object file
-src/Wachable.cpp.o:
-	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Wachable.cpp.o
-.PHONY : src/Wachable.cpp.o
-
-src/Wachable.i: src/Wachable.cpp.i
-
-.PHONY : src/Wachable.i
-
-# target to preprocess a source file
-src/Wachable.cpp.i:
-	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Wachable.cpp.i
-.PHONY : src/Wachable.cpp.i
-
-src/Wachable.s: src/Wachable.cpp.s
-
-.PHONY : src/Wachable.s
-
-# target to generate assembly for a file
-src/Wachable.cpp.s:
-	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Wachable.cpp.s
-.PHONY : src/Wachable.cpp.s
-
-src/main.o: src/main.cpp.o
-
-.PHONY : src/main.o
+.PHONY : src/Watchable.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/Watchable.cpp.o:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Watchable.cpp.o
+.PHONY : src/Watchable.cpp.o
 
-src/main.i: src/main.cpp.i
+src/Watchable.i: src/Watchable.cpp.i
 
-.PHONY : src/main.i
+.PHONY : src/Watchable.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/Watchable.cpp.i:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Watchable.cpp.i
+.PHONY : src/Watchable.cpp.i
 
-src/main.s: src/main.cpp.s
+src/Watchable.s: src/Watchable.cpp.s
 
-.PHONY : src/main.s
+.PHONY : src/Watchable.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/Watchable.cpp.s:
+	$(MAKE) -f CMakeFiles/spl1.dir/build.make CMakeFiles/spl1.dir/src/Watchable.cpp.s
+.PHONY : src/Watchable.cpp.s
 
 # Help Target
 help:
@@ -270,18 +270,18 @@ help:
 	@echo "... src/Action.o"
 	@echo "... src/Action.i"
 	@echo "... src/Action.s"
+	@echo "... src/Main.o"
+	@echo "... src/Main.i"
+	@echo "... src/Main.s"
 	@echo "... src/Session.o"
 	@echo "... src/Session.i"
 	@echo "... src/Session.s"
 	@echo "... src/User.o"
 	@echo "... src/User.i"
 	@echo "... src/User.s"
-	@echo "... src/Wachable.o"
-	@echo "... src/Wachable.i"
-	@echo "... src/Wachable.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... src/Watchable.o"
+	@echo "... src/Watchable.i"
+	@echo "... src/Watchable.s"
 .PHONY : help
 
 

@@ -5,10 +5,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Action.cpp" "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Action.cpp.o"
+  "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Main.cpp" "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Main.cpp.o"
   "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Session.cpp" "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Session.cpp.o"
   "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/User.cpp" "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/User.cpp.o"
-  "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Wachable.cpp" "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Wachable.cpp.o"
-  "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/main.cpp" "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/main.cpp.o"
+  "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Watchable.cpp" "/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Watchable.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

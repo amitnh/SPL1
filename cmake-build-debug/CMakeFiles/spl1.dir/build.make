@@ -57,18 +57,18 @@ include CMakeFiles/spl1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/spl1.dir/flags.make
 
-CMakeFiles/spl1.dir/src/main.cpp.o: CMakeFiles/spl1.dir/flags.make
-CMakeFiles/spl1.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/spl1.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/spl1.dir/src/main.cpp.o -c /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/main.cpp
+CMakeFiles/spl1.dir/src/Main.cpp.o: CMakeFiles/spl1.dir/flags.make
+CMakeFiles/spl1.dir/src/Main.cpp.o: ../src/Main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/spl1.dir/src/Main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/spl1.dir/src/Main.cpp.o -c /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Main.cpp
 
-CMakeFiles/spl1.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spl1.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/main.cpp > CMakeFiles/spl1.dir/src/main.cpp.i
+CMakeFiles/spl1.dir/src/Main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spl1.dir/src/Main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Main.cpp > CMakeFiles/spl1.dir/src/Main.cpp.i
 
-CMakeFiles/spl1.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spl1.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/main.cpp -o CMakeFiles/spl1.dir/src/main.cpp.s
+CMakeFiles/spl1.dir/src/Main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spl1.dir/src/Main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Main.cpp -o CMakeFiles/spl1.dir/src/Main.cpp.s
 
 CMakeFiles/spl1.dir/src/Action.cpp.o: CMakeFiles/spl1.dir/flags.make
 CMakeFiles/spl1.dir/src/Action.cpp.o: ../src/Action.cpp
@@ -109,35 +109,35 @@ CMakeFiles/spl1.dir/src/User.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spl1.dir/src/User.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/User.cpp -o CMakeFiles/spl1.dir/src/User.cpp.s
 
-CMakeFiles/spl1.dir/src/Wachable.cpp.o: CMakeFiles/spl1.dir/flags.make
-CMakeFiles/spl1.dir/src/Wachable.cpp.o: ../src/Wachable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/spl1.dir/src/Wachable.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/spl1.dir/src/Wachable.cpp.o -c /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Wachable.cpp
+CMakeFiles/spl1.dir/src/Watchable.cpp.o: CMakeFiles/spl1.dir/flags.make
+CMakeFiles/spl1.dir/src/Watchable.cpp.o: ../src/Watchable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/spl1.dir/src/Watchable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/spl1.dir/src/Watchable.cpp.o -c /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Watchable.cpp
 
-CMakeFiles/spl1.dir/src/Wachable.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spl1.dir/src/Wachable.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Wachable.cpp > CMakeFiles/spl1.dir/src/Wachable.cpp.i
+CMakeFiles/spl1.dir/src/Watchable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spl1.dir/src/Watchable.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Watchable.cpp > CMakeFiles/spl1.dir/src/Watchable.cpp.i
 
-CMakeFiles/spl1.dir/src/Wachable.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spl1.dir/src/Wachable.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Wachable.cpp -o CMakeFiles/spl1.dir/src/Wachable.cpp.s
+CMakeFiles/spl1.dir/src/Watchable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spl1.dir/src/Watchable.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/studs/bsc/2020/kapelnik/Desktop/SPL1/src/Watchable.cpp -o CMakeFiles/spl1.dir/src/Watchable.cpp.s
 
 # Object files for target spl1
 spl1_OBJECTS = \
-"CMakeFiles/spl1.dir/src/main.cpp.o" \
+"CMakeFiles/spl1.dir/src/Main.cpp.o" \
 "CMakeFiles/spl1.dir/src/Action.cpp.o" \
 "CMakeFiles/spl1.dir/src/Session.cpp.o" \
 "CMakeFiles/spl1.dir/src/User.cpp.o" \
-"CMakeFiles/spl1.dir/src/Wachable.cpp.o"
+"CMakeFiles/spl1.dir/src/Watchable.cpp.o"
 
 # External object files for target spl1
 spl1_EXTERNAL_OBJECTS =
 
-spl1: CMakeFiles/spl1.dir/src/main.cpp.o
+spl1: CMakeFiles/spl1.dir/src/Main.cpp.o
 spl1: CMakeFiles/spl1.dir/src/Action.cpp.o
 spl1: CMakeFiles/spl1.dir/src/Session.cpp.o
 spl1: CMakeFiles/spl1.dir/src/User.cpp.o
-spl1: CMakeFiles/spl1.dir/src/Wachable.cpp.o
+spl1: CMakeFiles/spl1.dir/src/Watchable.cpp.o
 spl1: CMakeFiles/spl1.dir/build.make
 spl1: CMakeFiles/spl1.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/users/studs/bsc/2020/kapelnik/Desktop/SPL1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable spl1"

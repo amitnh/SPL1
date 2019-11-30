@@ -22,7 +22,7 @@ status=COMPLETED;
 
 void BaseAction::error(const std::string &errorMsg) {
     this->errorMsg=errorMsg;
-    std::cout<<errorMsg;
+    cout<<errorMsg<<endl;
     status=ERROR;
 }
 
@@ -205,7 +205,8 @@ BaseAction *DuplicateUser::clone() {
         s+="]";
         cout<<s;
     }
-    }
+    std::cout<<" \n";
+}
     std::string PrintContentList::toString() const{
         string s = "PrintContentList "  + getStatusString(getStatus());
         if (get_errorMsg()!="")
