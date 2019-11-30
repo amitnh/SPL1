@@ -43,6 +43,14 @@ std::string BaseAction::get_errorMsg() const {
     return errorMsg;
 }
 
+void BaseAction::set_status(ActionStatus as) {
+    this->status = as;
+}
+
+void BaseAction::set_errorMsg(std::string msg) {
+    this->errorMsg= msg;
+}
+
 //class CreateUser  : public BaseAction {
     void CreateUser::act(Session& sess)
     {
@@ -78,6 +86,13 @@ std::string BaseAction::get_errorMsg() const {
         return s;
     }
 
+BaseAction *CreateUser::clone() {
+    CreateUser* newAction = new CreateUser();
+    newAction->set_status(this->getStatus());
+    newAction->set_errorMsg(this->get_errorMsg());
+    return newAction ;
+}
+
 //class ChangeActiveUser : public BaseAction {
     void ChangeActiveUser::act(Session& sess){
         sess.add_actionlog(*this);
@@ -99,6 +114,13 @@ std::string BaseAction::get_errorMsg() const {
             s+=":" + get_errorMsg();
         return s;
     }
+
+BaseAction *ChangeActiveUser::clone() {
+    ChangeActiveUser* newAction = new ChangeActiveUser();
+    newAction->set_status(this->getStatus());
+    newAction->set_errorMsg(this->get_errorMsg());
+    return newAction ;
+}
 
 //class DeleteUser : public BaseAction {
     void DeleteUser::act(Session & sess){
@@ -126,6 +148,13 @@ std::string BaseAction::get_errorMsg() const {
         return s;
     }
 
+BaseAction *DeleteUser::clone() {
+    DeleteUser* newAction = new DeleteUser();
+    newAction->set_status(this->getStatus());
+    newAction->set_errorMsg(this->get_errorMsg());
+    return newAction ;
+}
+
 
 //class DuplicateUser : public BaseAction {
     void DuplicateUser::act(Session & sess){
@@ -152,6 +181,13 @@ std::string BaseAction::get_errorMsg() const {
         return s;
     }
 
+BaseAction *DuplicateUser::clone() {
+    DuplicateUser* newAction = new DuplicateUser();
+    newAction->set_status(this->getStatus());
+    newAction->set_errorMsg(this->get_errorMsg());
+    return newAction ;
+}
+
 
 //class PrintContentList : public BaseAction {
     void PrintContentList::act (Session& sess){
@@ -168,6 +204,13 @@ std::string BaseAction::get_errorMsg() const {
             s+=":" + get_errorMsg();
         return s;
     }
+
+BaseAction *PrintContentList::clone() {
+    PrintContentList* newAction = new PrintContentList();
+    newAction->set_status(this->getStatus());
+    newAction->set_errorMsg(this->get_errorMsg());
+    return newAction ;
+}
 
 //class PrintWatchHistory : public BaseAction {
     void PrintWatchHistory::act (Session& sess){
@@ -192,6 +235,13 @@ std::string BaseAction::get_errorMsg() const {
             s+=":" + get_errorMsg();
         return s;
     }
+
+BaseAction *PrintWatchHistory::clone() {
+    PrintWatchHistory* newAction = new PrintWatchHistory();
+    newAction->set_status(this->getStatus());
+    newAction->set_errorMsg(this->get_errorMsg());
+    return newAction ;
+}
 
 
 //class Watch : public BaseAction {
@@ -240,6 +290,13 @@ std::string BaseAction::get_errorMsg() const {
         return s;
     }
 
+BaseAction *Watch::clone() {
+    Watch* newAction = new Watch();
+    newAction->set_status(this->getStatus());
+    newAction->set_errorMsg(this->get_errorMsg());
+    return newAction ;
+}
+
 
 //class PrintActionsLog : public BaseAction {
     void PrintActionsLog::act(Session& sess){
@@ -256,6 +313,13 @@ std::string BaseAction::get_errorMsg() const {
         return s;
     }
 
+BaseAction *PrintActionsLog::clone() {
+    PrintActionsLog* newAction = new PrintActionsLog();
+    newAction->set_status(this->getStatus());
+    newAction->set_errorMsg(this->get_errorMsg());
+    return newAction ;
+}
+
 
 //class Exit : public BaseAction {
     void Exit::act(Session& sess){}
@@ -265,5 +329,12 @@ std::string BaseAction::get_errorMsg() const {
             s+=":" + get_errorMsg();
         return s;
     }
+
+BaseAction *Exit::clone() {
+    Exit* newAction = new Exit();
+    newAction->set_status(this->getStatus());
+    newAction->set_errorMsg(this->get_errorMsg());
+    return newAction ;
+}
 
 

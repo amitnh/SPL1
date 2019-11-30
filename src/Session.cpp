@@ -68,11 +68,111 @@ User* activeUser;
 
         }
     }
-    Session::~Session()  {}    //Destructor
-    Session::Session(const Session &other) {}     //Copy constructor
-    Session::Session(Session &&other) {}     //Move constructor
-    Session&     Session::operator=(const Session &other) {}  //Copy Assignment           RULE OF 5
-    Session&     Session::operator=(Session &&other){}
+    Session::~Session() {    //Destructor}
+
+        // delete all watchable
+        for (auto watch : content)
+        {
+            delete watch;
+        }
+        // delete all BaseAction in actionlog
+        for (auto log : actionsLog)
+        {
+            delete log;
+        }
+        // delete all users
+        userMap.clear();
+    }
+    Session::Session(const Session &other) {     //Copy constructor
+        for (auto log : other.actionsLog)
+        {
+            actionsLog.push_back(log->clone());
+        }
+        for (auto watch : other.content)
+        {
+            content.push_back(watch->clone());
+        }
+        activeUser = other.activeUser->clone(activeUser->getName());
+
+        for (std::pair<std::string, User*> element : other.userMap)
+        {
+            std::pair<std::string, User*> elementcopy (element.first,element.second->clone(element.first));
+            this->userMap.insert(elementcopy);
+
+            for (Watchable* his : element.second->get_history()) //connect the history in each user to the new movie pointer
+            {
+                for (auto watch : content)
+                {
+                    if (his->get_id()==watch->get_id()) {
+                        his = watch;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    Session&     Session::operator=(const Session &other) {  //Copy Assignment           RULE OF 5
+
+        actionsLog.clear();
+        for (auto log : other.actionsLog)
+        {
+            actionsLog.push_back(log->clone());
+        }
+        content.clear();
+        for (auto watch : other.content)
+        {
+            content.push_back(watch->clone());
+        }
+        activeUser = other.activeUser->clone(activeUser->getName());
+
+        userMap.clear();
+        for (std::pair<std::string, User*> element : other.userMap)
+        {
+            std::pair<std::string, User*> elementcopy (element.first,element.second->clone(element.first));
+            this->userMap.insert(elementcopy);
+
+            for (Watchable* his : element.second->get_history()) //connect the history in each user to the new movie pointer
+            {
+                for (auto watch : content)
+                {
+                    if (his->get_id()==watch->get_id()) {
+                        his = watch;
+                        break;
+                    }
+                }
+            }
+        }
+        return *this;
+    }
+Session::Session(Session &&other) {     //Move constructor
+        content = other.content;
+        actionsLog = other.actionsLog;
+        userMap = other.userMap;
+        activeUser=other.activeUser;
+}
+    Session&     Session::operator=(Session &&other){ //move assignment
+        for (auto watch : content)
+        {
+            delete watch;
+        }
+        for (auto action : actionsLog)
+        {
+            delete action;
+        }
+        for (std::pair<std::string, User*> element : other.userMap) {
+            delete element.second;
+        }
+        delete activeUser;
+
+        content = other.content;
+        actionsLog = other.actionsLog;
+        userMap = other.userMap;
+        activeUser=other.activeUser;
+        return  *this;
+    }
+
+
 
 User &Session::get_activeUser() {
     return *activeUser;

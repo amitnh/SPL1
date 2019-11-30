@@ -51,6 +51,10 @@ std::string Movie::get_full_name() const {
     return get_name();
 }
 
+Watchable *Movie::clone() {
+    return new Movie(this->get_id(),this->get_name(),this->get_length(),this->get_tags());
+}
+
 Episode::Episode(long id, const std::string& seriesName,int length, int season, int episode ,const std::vector<std::string>& tags):Watchable(id,length,tags),season{season},episode{episode},seriesName{seriesName}{}
 
 std::string Episode::toString() const {
@@ -91,6 +95,10 @@ std::string Episode::get_name() const {
 
 std::string Episode::get_full_name() const {
     return seriesName + " S"+to_string(season) +"E" +to_string(episode);
+}
+
+Watchable *Episode::clone() {
+    return new Episode(this->get_id(),this->get_name(),this->get_length(),this->get_season(),this->get_episode(),this->get_tags());
 }
 
 

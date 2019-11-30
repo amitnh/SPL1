@@ -15,6 +15,7 @@ public:
     virtual Watchable* getNextWatchable(Session& s) const = 0;
     virtual std::string get_name() const=0;
     virtual std::string get_full_name() const=0;
+    virtual Watchable* clone()=0;
     std::vector<std::string>  get_tags() const;
     long get_id() const;
     int get_length() const;
@@ -34,6 +35,7 @@ public:
     virtual Watchable* getNextWatchable(Session& s) const;
     virtual std::string get_name() const;
     virtual std::string get_full_name() const;
+    virtual Watchable* clone();
 private:
     std::string name;
 };
@@ -47,6 +49,7 @@ public:
     virtual Watchable* getNextWatchable(Session& s)  const;
     virtual std::string get_name() const;
     virtual std::string get_full_name() const;
+    virtual Watchable* clone();
     int get_season() const;
     int get_episode() const;
 
