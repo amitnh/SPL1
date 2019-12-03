@@ -17,7 +17,6 @@ public:
     Session(Session &&other);      //Move constructor
     Session& operator=(const Session &other);   //Copy Assignment           RULE OF 5
     Session& operator=(Session &&other);   //Copy Assignment
-    User& get_activeUser();
     void set_activeUser(std::string name);
     void delete_user(std::string name);
     void start();
@@ -27,6 +26,7 @@ public:
     void add_user(User *user);
     void add_actionlog(BaseAction &action);
     bool isTaken(std::string name);
+    User& get_activeUser();
 
     User* get_user_by_name(std::string name);
     std::vector<std::string> split(std::string str);

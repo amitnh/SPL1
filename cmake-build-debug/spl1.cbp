@@ -8,33 +8,33 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug"/>
+				<Option working_dir="/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug"/>
+				<Option working_dir="/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="spl1">
-				<Option output="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug/spl1" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug"/>
+				<Option output="/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/spl1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/{include}"/>
+					<Add directory="/users/studs/bsc/2020/amitnag/Desktop/SPL1/{include}"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -45,20 +45,20 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 spl1"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 spl1"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="spl1/fast">
-				<Option output="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug/spl1" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug"/>
+				<Option output="/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/spl1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/{include}"/>
+					<Add directory="/users/studs/bsc/2020/amitnag/Desktop/SPL1/{include}"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -69,54 +69,54 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 spl1/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 spl1/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug"/>
+				<Option working_dir="/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/kapelnik/Desktop/SPL\ Projects/project1/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/Action.h">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Action.h">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/Session.h">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Session.h">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/User.h">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/User.h">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/Watchable.h">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Watchable.h">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/json.hpp">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/json.hpp">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/Action.cpp">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Action.cpp">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/Main.cpp">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Main.cpp">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/Session.cpp">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Session.cpp">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/User.cpp">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/User.cpp">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/Watchable.cpp">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Watchable.cpp">
 			<Option target="spl1"/>
 		</Unit>
-		<Unit filename="/home/kapelnik/Desktop/SPL Projects/project1/SPL1/CMakeLists.txt">
+		<Unit filename="/users/studs/bsc/2020/amitnag/Desktop/SPL1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

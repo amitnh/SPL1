@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/Action.h
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Action.h
 string
 -
 iostream
 -
 
-/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/Session.h
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Session.h
 vector
 -
 unordered_map
@@ -20,9 +20,9 @@ unordered_map
 string
 -
 ../include/Action.h
-/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/Action.h
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Action.h
 
-/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/User.h
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/User.h
 vector
 -
 string
@@ -32,19 +32,19 @@ unordered_set
 unordered_map
 -
 
-/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/Watchable.h
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Watchable.h
 string
 -
 vector
 -
 
-/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/User.cpp
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/User.cpp
 ../include/User.h
-/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/User.h
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/User.h
 ../include/Watchable.h
-/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/Watchable.h
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Watchable.h
 ../include/Session.h
-/home/kapelnik/Desktop/SPL Projects/project1/SPL1/include/Session.h
+/users/studs/bsc/2020/amitnag/Desktop/SPL1/include/Session.h
 bits/stdc++.h
 -
 

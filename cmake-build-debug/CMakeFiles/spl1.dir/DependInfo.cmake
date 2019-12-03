@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/Action.cpp" "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Action.cpp.o"
-  "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/Main.cpp" "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Main.cpp.o"
-  "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/Session.cpp" "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Session.cpp.o"
-  "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/User.cpp" "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/User.cpp.o"
-  "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/src/Watchable.cpp" "/home/kapelnik/Desktop/SPL Projects/project1/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Watchable.cpp.o"
+  "/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Action.cpp" "/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Action.cpp.o"
+  "/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Main.cpp" "/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Main.cpp.o"
+  "/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Session.cpp" "/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Session.cpp.o"
+  "/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/User.cpp" "/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/User.cpp.o"
+  "/users/studs/bsc/2020/amitnag/Desktop/SPL1/src/Watchable.cpp" "/users/studs/bsc/2020/amitnag/Desktop/SPL1/cmake-build-debug/CMakeFiles/spl1.dir/src/Watchable.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

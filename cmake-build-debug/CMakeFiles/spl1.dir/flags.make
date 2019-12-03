@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/kapelnik/Desktop/SPL Projects/project1/SPL1/{include}" 
+CXX_INCLUDES = -I/users/studs/bsc/2020/amitnag/Desktop/SPL1/{include} 
 
