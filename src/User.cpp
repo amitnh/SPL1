@@ -6,7 +6,7 @@
 #include "../include/Watchable.h"
 
 #include "../include/Session.h"
-#include<bits/stdc++.h>
+#include<algorithm>
 
 //#include <nlohmann/json.hpp>
 using namespace std;
@@ -56,8 +56,9 @@ int LengthRecommenderUser::get_avg_his_length() {
 }
 User* LengthRecommenderUser::clone(const std::string newName) {
     LengthRecommenderUser *user = new LengthRecommenderUser(newName);
-    user->history=this->history;
+    //user->history=this->history;
     user->avg_his_length=this->avg_his_length;
+
     return user;
 }
 
@@ -72,7 +73,7 @@ RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User{name},t
     }
 User *RerunRecommenderUser::clone(std::string newName) {
     RerunRecommenderUser *user = new RerunRecommenderUser(newName);
-    user->history=this->history;
+   // user->history=this->history;
     // add more staff to copy uniq to return
     return user;
 }
@@ -117,12 +118,11 @@ User *RerunRecommenderUser::clone(std::string newName) {
             }
         }
         //if we are here, the user already saw it all.
-        cout<<"no more stuff to see for you"<< endl;
         return nullptr;
     }
 User *GenreRecommenderUser::clone(std::string newName) {
     GenreRecommenderUser *user = new GenreRecommenderUser(newName);
-    user->history=this->history;
+    //user->history=this->history;
     // add more staff to copy uniq to genre
     return user;
 }

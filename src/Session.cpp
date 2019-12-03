@@ -93,8 +93,16 @@ Session::Session(const Session &other):command{},content{},actionsLog{},userMap{
     for (auto watch : other.content) {
         content.push_back(watch->clone());
     }
-    activeUser = other.activeUser->clone(activeUser->getName());
+    activeUser = other.activeUser->clone(other.activeUser->getName());
 
+    for(auto x : other.activeUser->get_history()) {
+        for (auto y:content) {
+            if (x->toString() == y->toString()) {
+                activeUser->get_history().push_back(y);
+
+            }
+        }
+    }
     for (std::pair<std::string, User *> element : other.userMap) {
         std::pair<std::string, User *> elementcopy(element.first, element.second->clone(element.first));
         this->userMap.insert(elementcopy);
@@ -121,7 +129,8 @@ Session &Session::operator=(const Session &other) {  //Copy Assignment          
     for (auto watch : other.content) {
         content.push_back(watch->clone());
     }
-    activeUser = other.activeUser->clone(activeUser->getName());
+    activeUser = other.activeUser->clone(other.activeUser->getName());
+
 
     userMap.clear();
     for (std::pair<std::string, User *> element : other.userMap) {
@@ -158,13 +167,18 @@ Session &Session::operator=(Session &&other) { //move assignment
     for (std::pair<std::string, User *> element : other.userMap) {
         delete element.second;
     }
-    delete activeUser;
+    //delete activeUser;
 
     content = other.content;
     actionsLog = other.actionsLog;
     userMap = other.userMap;
     activeUser = other.activeUser;
+    other.activeUser = nullptr;
+    other.actionsLog.clear();
+    other.userMap.clear();
+    other.content.clear();
     return *this;
+
 }
 
 
