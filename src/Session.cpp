@@ -25,8 +25,8 @@ Session::Session(const std::string &configFilePath):command{},content{},actionsL
     User *defaultUser = new LengthRecommenderUser("default");
     activeUser = defaultUser;
     //******add to userMap
-    pair<std::string, User *> upair(defaultUser->getName(), defaultUser);
-    userMap.insert(upair);
+    //pair<std::string, User *> upair(defaultUser->getName(), defaultUser);
+    userMap.insert({defaultUser->getName(),defaultUser} );
     //Read Config File
 
 
@@ -72,6 +72,7 @@ Session::Session(const std::string &configFilePath):command{},content{},actionsL
 }
 
 Session::~Session() {    //Destructor}
+    std::cout<<"Destructor activate";
 
     // delete all watchable
     for (auto watch : content) {
@@ -82,6 +83,7 @@ Session::~Session() {    //Destructor}
         delete log;
     }
     for (auto con : userMap) {
+        std::cout<<con.second->getName();
         delete con.second;
     }
 
@@ -90,7 +92,7 @@ Session::~Session() {    //Destructor}
 Session::Session(const Session &other):command{},content{},actionsLog{},userMap{},activeUser{} {     //Copy constructor
     this->activeUser = other.activeUser->clone(other.activeUser->getName());
     this->activeUser->get_history().clear();
-
+    this->userMap.insert({activeUser->getName(), activeUser});
     for (auto log : other.actionsLog) {
         actionsLog.push_back(log->clone());
     }
