@@ -22,7 +22,7 @@ User *activeUser;
 
 Session::Session(const std::string &configFilePath):command{},content{},actionsLog{},userMap{},activeUser{} {         //constructor
     //insert from json file to watchable vector "content"
-    User* defaultUser = new LengthRecommenderUser("default");
+    LengthRecommenderUser* defaultUser = new LengthRecommenderUser("default");
     activeUser = defaultUser;
     userMap.insert({"default",defaultUser} );
 
@@ -118,17 +118,24 @@ Session::Session(const Session &other):command{},content{},actionsLog{},userMap{
 Session &Session::operator=(const Session &other) {  //Copy Assignment           RULE OF 5
 
     this->activeUser->get_history().clear();
-
+    for(auto x:actionsLog){
+        delete(x);
+    }
     actionsLog.clear();
     for (auto log : other.actionsLog) {
         actionsLog.push_back(log->clone());
+    }
+    for(auto x:content){
+        delete(x);
     }
     content.clear();
     for (auto watch : other.content) {
         content.push_back(watch->clone());
     }
 
-
+    for(auto x:userMap){
+        delete(x.second);
+    }
     userMap.clear();
     for (auto element : other.userMap) {
         std::pair<std::string, User *> elementcopy(element.first, element.second->clone(element.first));
@@ -136,12 +143,13 @@ Session &Session::operator=(const Session &other) {  //Copy Assignment          
         if(elementcopy.first == other.activeUser->getName())
             this->activeUser = elementcopy.second;
 
+        elementcopy.second->get_history().clear();
 
         for (auto his : element.second->get_history()) //connect the history in each user to the new movie pointer
         {
-            for (auto watch : content) {s
+            for (auto watch : content) {
                 if (his->get_id() == watch->get_id()) {
-                    his = watch;
+                    elementcopy.second->get_history().push_back(watch);
                     break;
                 }
             }
