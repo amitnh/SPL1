@@ -16,7 +16,7 @@ public:
     Session(const Session &other);      //Copy constructor
     Session(Session &&other);      //Move constructor
     Session& operator=(const Session &other);   //Copy Assignment           RULE OF 5
-    Session& operator=(Session &&other);   //Copy Assignment
+    Session& operator=(Session &&other);   //Move Assignment
     void set_activeUser(std::string name);
     void delete_user(std::string name);
     void start();

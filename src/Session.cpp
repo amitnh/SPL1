@@ -22,13 +22,11 @@ User *activeUser;
 
 Session::Session(const std::string &configFilePath):command{},content{},actionsLog{},userMap{},activeUser{} {         //constructor
     //insert from json file to watchable vector "content"
-    User *defaultUser = new LengthRecommenderUser("default");
+    User* defaultUser = new LengthRecommenderUser("default");
     activeUser = defaultUser;
-    //******add to userMap
-    //pair<std::string, User *> upair(defaultUser->getName(), defaultUser);
-    userMap.insert({defaultUser->getName(),defaultUser} );
-    //Read Config File
+    userMap.insert({"default",defaultUser} );
 
+    //Read Config File
 
     //MOVIES
     std::ifstream i(configFilePath);
@@ -72,8 +70,6 @@ Session::Session(const std::string &configFilePath):command{},content{},actionsL
 }
 
 Session::~Session() {    //Destructor}
-    std::cout<<"Destructor activate";
-
     // delete all watchable
     for (auto watch : content) {
         delete watch;
@@ -83,16 +79,14 @@ Session::~Session() {    //Destructor}
         delete log;
     }
     for (auto con : userMap) {
-        std::cout<<con.second->getName();
         delete con.second;
     }
-
+    this->userMap.clear();
+    this->activeUser = nullptr;
 }
 
 Session::Session(const Session &other):command{},content{},actionsLog{},userMap{},activeUser{} {     //Copy constructor
-    this->activeUser = other.activeUser->clone(other.activeUser->getName());
-    this->activeUser->get_history().clear();
-    this->userMap.insert({activeUser->getName(), activeUser});
+
     for (auto log : other.actionsLog) {
         actionsLog.push_back(log->clone());
     }
@@ -100,35 +94,29 @@ Session::Session(const Session &other):command{},content{},actionsLog{},userMap{
         content.push_back(watch->clone());
     }
 
-
-    for(auto x: other.activeUser->get_history()){
-        for(auto y : content) {
-            if (x->get_id() == y->get_id())
-                this->activeUser->get_history().push_back(y);
-        }
-
-    }
     for (std::pair<std::string, User *> element : other.userMap) {
-        std::pair<std::string, User *> elementcopy(element.first, element.second->clone(element.first));
-        this->userMap.insert(elementcopy);
+        User* tmp = element.second->clone(element.first);
+        if (tmp->getName()== other.activeUser->getName())
+            activeUser=tmp;
+            this->userMap.insert({tmp->getName(),tmp });
 
-        for (Watchable *his : element.second->get_history()) //connect the history in each user to the new movie pointer
-        {
-            for (auto watch : content) {
-                if (his->get_id() == watch->get_id()) {
-                    his = watch;
-                    break;
+            for (auto his : element.second->get_history()) //connect the history in each user to the new movie pointer
+            {
+                for (auto watch : content) {
+                    if (his->get_id() == watch->get_id()) {
+                        tmp->get_history().push_back(watch);
+                        break;
+                    }
                 }
             }
         }
-        if(element.first == other.activeUser->getName())
-            this->activeUser= elementcopy.second;
+      //  if(element.first == other.activeUser->getName())
+         //   this->activeUser= elementcopy.second;
     }
-}
+
 
 Session &Session::operator=(const Session &other) {  //Copy Assignment           RULE OF 5
 
-    this->activeUser = other.activeUser->clone(other.activeUser->getName());
     this->activeUser->get_history().clear();
 
     actionsLog.clear();
@@ -140,20 +128,18 @@ Session &Session::operator=(const Session &other) {  //Copy Assignment          
         content.push_back(watch->clone());
     }
 
-    for(auto x: other.activeUser->get_history()){
-        for(auto y : content)
-            if(x->get_id()==y->get_id())
-                this->activeUser->get_history().push_back(y);
 
-    }
     userMap.clear();
-    for (std::pair<std::string, User *> element : other.userMap) {
+    for (auto element : other.userMap) {
         std::pair<std::string, User *> elementcopy(element.first, element.second->clone(element.first));
         this->userMap.insert(elementcopy);
+        if(elementcopy.first == other.activeUser->getName())
+            this->activeUser = elementcopy.second;
 
-        for (Watchable *his : element.second->get_history()) //connect the history in each user to the new movie pointer
+
+        for (auto his : element.second->get_history()) //connect the history in each user to the new movie pointer
         {
-            for (auto watch : content) {
+            for (auto watch : content) {s
                 if (his->get_id() == watch->get_id()) {
                     his = watch;
                     break;
@@ -165,12 +151,21 @@ Session &Session::operator=(const Session &other) {  //Copy Assignment          
 }
 
 Session::Session(Session &&other):command{},content{},actionsLog{},userMap{},activeUser{}  {     //Move constructor
-    content = other.content;
-    actionsLog = other.actionsLog;
-    userMap = other.userMap;
-    activeUser = other.activeUser;
+    //content = other.content;
+    for(auto x : other.content)
+        content.push_back(x);
+    //actionsLog = other.actionsLog;
+    for(auto x : other.actionsLog)
+        actionsLog.push_back(x);
+    //userMap = other.userMap;
+    for(auto x : other.userMap) {
+        if(other.activeUser->getName()==x.first)
+            activeUser=x.second;
+        userMap.insert({x.first, x.second});
+    }
 
     other.content.clear();
+    other.command.clear();
     other.actionsLog.clear();
     other.userMap.clear();
     other.activeUser = nullptr;
@@ -178,15 +173,14 @@ Session::Session(Session &&other):command{},content{},actionsLog{},userMap{},act
 
 Session &Session::operator=(Session &&other) { //move assignment
     for (auto watch : content) {
-        delete watch;
+        delete (watch);
     }
     for (auto action : actionsLog) {
-        delete action;
+        delete (action);
     }
-    for (std::pair<std::string, User *> element : other.userMap) {
-        delete element.second;
+    for (auto element : other.userMap) {
+        delete (element.second);
     }
-    //delete activeUser;
 
     content = other.content;
     actionsLog = other.actionsLog;
@@ -197,7 +191,6 @@ Session &Session::operator=(Session &&other) { //move assignment
     other.actionsLog.clear();
     other.userMap.clear();
     other.activeUser = nullptr;
-
 
     return *this;
 }
@@ -208,6 +201,7 @@ User &Session::get_activeUser() {
 }
 
 void Session::start() {
+    command.clear();
     //for(int i=0;i<200;i++)
     //cout<< content.at(i)->toString();
     std::string input;
