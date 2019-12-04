@@ -6,7 +6,7 @@
 #include "../include/Watchable.h"
 
 #include "../include/Session.h"
-#include<algorithm>
+#include<bits/stdc++.h>
 
 //#include <nlohmann/json.hpp>
 using namespace std;
@@ -29,10 +29,13 @@ using namespace std;
 
 
 //class LengthRecommenderUser : public User {
-LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name),avg_his_length{} {}//use USER constractor}
+LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name){}//use USER constractor}
 
     Watchable* LengthRecommenderUser::getRecommendation(Session& sess) {
-        set_avg_his_length();
+        int avg_his_length=0;
+        for(auto x : history)
+            avg_his_length+=x->get_length();
+        avg_his_length = (int)(avg_his_length/history.size());
         int min=99999, id=0;
         for(auto x : sess.get_content()){
            if(!searchinhistory((int)x->get_id()))
@@ -43,24 +46,17 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string &name):User(name)
         }
         return sess.get_content().at(id);
 
-    }
-void LengthRecommenderUser::set_avg_his_length() {
-        avg_his_length=0;
-        for(auto x : history)
-            avg_his_length+=x->get_length();
-        avg_his_length = (int)(avg_his_length/history.size());
 }
 
-int LengthRecommenderUser::get_avg_his_length() {
-    return avg_his_length;
-}
 User* LengthRecommenderUser::clone(const std::string newName) {
+    return  new LengthRecommenderUser(*this);
+/*
     LengthRecommenderUser *user = new LengthRecommenderUser(newName);
     //user->history=this->history;
     user->avg_his_length=this->avg_his_length;
-
     return user;
-}
+*/
+ }
 
 
 //class RerunRecommenderUser : public User {
@@ -72,10 +68,12 @@ RerunRecommenderUser::RerunRecommenderUser(const std::string& name):User{name},t
         return history.at(towatch);
     }
 User *RerunRecommenderUser::clone(std::string newName) {
+    return new RerunRecommenderUser(*this);
+    /*
     RerunRecommenderUser *user = new RerunRecommenderUser(newName);
-   // user->history=this->history;
+    //user->history=this->history;
     // add more staff to copy uniq to return
-    return user;
+    return user;*/
 }
 
 
@@ -118,13 +116,16 @@ User *RerunRecommenderUser::clone(std::string newName) {
             }
         }
         //if we are here, the user already saw it all.
+        cout<<"no more stuff to see for you"<< endl;
         return nullptr;
     }
 User *GenreRecommenderUser::clone(std::string newName) {
-    GenreRecommenderUser *user = new GenreRecommenderUser(newName);
+   // GenreRecommenderUser *user = new GenreRecommenderUser(newName);
     //user->history=this->history;
     // add more staff to copy uniq to genre
-    return user;
+    //return user;
+
+    return new GenreRecommenderUser(*this);
 }
 
 bool GenreRecommenderUser::sortbysec(const std::pair<std::string, int> &a, const std::pair<std::string, int> &b) {

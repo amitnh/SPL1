@@ -32,11 +32,10 @@ public:
     LengthRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
     User* clone(std::string newName);
-    int get_avg_his_length();
-    void set_avg_his_length();
+
 
 private:
-    int avg_his_length; //minutes average
+
 };
 
 class RerunRecommenderUser : public User {
