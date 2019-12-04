@@ -12,12 +12,11 @@ int main(int argc, char** argv){
     s1->start();
     Session* s2 = new Session(argv[1]);
     s2->start();
-    *s2 = *s1;
+    *s2 = std::move(*s1); //move assignment
     delete(s1);
-    delete(s2);
-    /* //move assignment
+
     s2->start();
-    Session* s3=new Session(argv[1]); //move const
+    Session* s3(new Session(argv[1])); //move const
     s3->start();
     *s2 = *s3; //operator=
     s2->start();
@@ -30,6 +29,6 @@ int main(int argc, char** argv){
     *s2 = * s4; //operator=
     delete(s4);
     s2->start();
-    ;*/
+    delete(s2);
     return 0;
 }

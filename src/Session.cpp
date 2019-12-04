@@ -72,17 +72,16 @@ Session::Session(const std::string &configFilePath):command{},content{},actionsL
 Session::~Session() {    //Destructor}
     // delete all watchable
     for (auto watch : content) {
-        delete watch;
+        delete(watch);
     }
     // delete all BaseAction in actionlog
     for (auto log : actionsLog) {
-        delete log;
+        delete(log);
     }
     for (auto con : userMap) {
-        delete con.second;
+        delete(con.second);
     }
     this->userMap.clear();
-    this->activeUser = nullptr;
 }
 
 Session::Session(const Session &other):command{},content{},actionsLog{},userMap{},activeUser{} {     //Copy constructor
@@ -186,14 +185,20 @@ Session &Session::operator=(Session &&other) { //move assignment
     for (auto action : actionsLog) {
         delete (action);
     }
-    for (auto element : other.userMap) {
-        delete (element.second);
+    for (auto element : userMap) {
+        delete(element.second);
     }
+
+    actionsLog.clear();
+    userMap.clear();
+    content.clear();
+    command.clear();
 
     content = other.content;
     actionsLog = other.actionsLog;
     userMap = other.userMap;
     activeUser = other.activeUser;
+
 
     other.content.clear();
     other.actionsLog.clear();
